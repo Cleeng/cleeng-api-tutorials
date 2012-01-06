@@ -1,5 +1,5 @@
 Cleeng Open Tutorial 2 - Load purchased item async
-==========================================================
+==================================================
 
 This tutorial shows how to reveal purchased content using AJAX. To understand the full tutorial, basic knowledge of
 jQuery and PHP is required. At this point we assume that you are familiar with [Tutorial 1 - Getting started](), and you already created an itemOffer in Tutorial 1. 
@@ -18,7 +18,7 @@ Click here to see (or unfold) a working demo: [Example 2 - Load purchased item a
 
 
 2. Loading async
----------------
+----------------
 
 ### 2.1. Why loading async
 In [Tutorial 1](), after the visitor made the purchase, we simply refreshed the full page to reveal the item. This works well for a simple, almost empty HTML document. However, usually your page will contain a lot of HTML code, images, flash animations etc. Refreshing the full page will give a delay which we can avoid. By loading asynchronously (with AJAX) the user experience is improved a lot as we only reload to get the purchased content from the server.
@@ -29,7 +29,7 @@ Get the files for example 2 [load purchased item async from Github](). You can r
 NOTE TO FINALIZE DONALD: we define it the content to sell with parameter and x, but normally you will load it from a databse
 
 3. Async delivery of your content: ajax.php
----------------------
+-------------------------------------------
 When the page is delivered an initial validation with isAccessGranted() is done like in tutorial 1.  To load the content asynchronously after it is purchased we call `ajax.php` to verify access again. When the content is accessible it will return the content, otherwise be empty.
 
 PHP script responsible for loading data should be as light as possible - usually it will only call isAccessGranted() API,
@@ -45,7 +45,7 @@ load some content from database and return it.
 
 
 4. Purchase page
------------------------
+----------------
 
 This example is based on jQuery library, which can be loaded from the Google servers. Next to that we load the Cleeng Javascript SDK. In tutorial 1, after the purchase the full page was reloaded with document.reload(). This part is now replaced with the async call to ajax.php.
 
@@ -85,7 +85,7 @@ This example follows jQuery conventions. It uses jQuery's `click()` to trigger t
 	}
 
 5. Summary
---------------------
+----------
 
 Get the package with all files [Tutorial 2 - Load purchased item async](http://github.com/cleeng/) from Github and do the following:
 
