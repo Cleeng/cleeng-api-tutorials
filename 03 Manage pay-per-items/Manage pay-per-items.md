@@ -53,27 +53,27 @@ In order to give you some flexibility there are two attributes `myId` and `myDat
 
 ### 2.5. To save all these options
 
-Now open [create_item_offer_all.php]() and edit the parameters as you wish. Run the file to create and define your offer on the Cleeng servers. Copy the itemOfferId that is returned from the Cleeng servers and use it in order to sell your item as shown in tutorial 1 and 2.
+Now open [create_item_offer_all.php]() and edit the parameters as you wish. Run the file to create and define your offer on the Cleeng servers. Copy the item offer ID that is returned from the Cleeng servers and use it in order to sell your item as shown in tutorial 1 and 2.
+      $itemOffer = $cleengApi->createItemOffer(array(
+          'price' => 0.49,
+          'url' => 'http://your-site.com/view-item-here',
+          'description' => 'Buy this item for just $0.49. You will love it!',
+          'pageTitle' => '',
+          'socialCommisionEnabled',
+          'socialCommisionRate',
 
-      $itemOfferId = $cleengAPI->createItemOffer(array(
-        'price' => 0.49,
-        'url' => 'http://your-site.com/view-item-here',
-        'description' => 'Buy this item for just $0.49. You will love it!',
-        'pageTitle' => '';
-        'socialCommisionEnabled'
-        'socialCommisionRate',
-        
-        'myId' => '';
-        'myData' => '';
-     ));
+          'myId' => '',
+          'myData' => '',
+       ));
+       echo 'Created item offer with id = ' . $itemOffer->id . "\n";
  
 
 3. Find offers you defined before
------------------------------------
+---------------------------------
 To find the details of an offer you have created before you can use the PHP function `getItemOffer()`.
 
 	print_r($cleengAPI);
-	$cleengAPI->getItemOffer(930339322); // replace with the itemOfferId you created before
+	$cleengApi->getItemOffer(930339322); // replace with the itemOfferId you created before
 	print_r($cleengAPI);
  
 ###MAT??? You can also request details from multiple items at a time. (can you, I suppsoe not???)
@@ -92,7 +92,7 @@ Retreiving the details of an offer can also be done via the Javascript function 
 In case you don't know the offerId anymore, you can retreive them by using function x.
 
 5. Update or remove offers
----------------------
+--------------------------
 Once you have created your offer you might want to update some parameters, or even completely remove the offer. 
 
 Please be aware that if you have already sold items to customers, you might upset them once you change something or remove the items entirely. So use these functions smartly. Obviously you can only update or remove items from yourself.
@@ -106,7 +106,7 @@ Use [remove_offer.php]() to delete an offer.
 	$cleengAPI-->
 
 6. Summary
---------------------
+----------
 
 Get the package with all files [Tutorial 3 - ](http://github.com/cleeng/) from Github and do the following:
 
