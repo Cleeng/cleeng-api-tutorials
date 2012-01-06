@@ -119,5 +119,5 @@ Get the package with all files [Tutorial 3 - ](http://github.com/cleeng/) from G
 
 * Ensure you are registered as publisher and have your API token entered in the config.php file - see [tutorial 1]()
 * To enjoy the extra features like social commission or rent, complete the sales parameters in [create_offer_all.php](http://github.com/cleeng). Run the file in your browser - this generates your item offer ID
-* Put your item offer ID in the other files. To see the details of the offer: [get_offer_details.php](http://github.com/cleeng), update the offer: [update_offer.php]() or delete the offer: [delete_offer.php].
+* Put your item offer ID in the other files. To see the details of the offer: [get_offer_details.php](http://github.com/cleeng), update the offer: [update_offer.php]() or delete the offer: [remove_offer.php].
 * Now you are able to manage your digital offers. You can setup, update, remove and find pay-per-items via the Cleeng Open API.
