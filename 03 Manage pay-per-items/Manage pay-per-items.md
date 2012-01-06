@@ -72,12 +72,19 @@ Now open [create_item_offer_all.php]() and edit the parameters as you wish. Run 
 ---------------------------------
 To find the details of an offer you have created before you can use the PHP function `getItemOffer()`.
 
-	print_r($cleengAPI);
-	$cleengApi->getItemOffer(930339322); // replace with the itemOfferId you created before
-	print_r($cleengAPI);
- 
-###MAT??? You can also request details from multiple items at a time. (can you, I suppsoe not???)
+	$itemOffer1 = $cleengApi->getItemOffer(930339322); // replace with the itemOfferId you created before
+    $itemOffer2 = $cleengApi->getItemOffer(108640889); // replace with the itemOfferId you created before
+    $itemOffer3 = $cleengApi->getItemOffer(427318025); // replace with the itemOfferId you created before
 
+    echo "Item Offer 1:<br />\n";
+    print_r($itemOffer1->toArray());
+
+    echo "\nItem Offer 2:<br />\n";
+    print_r($itemOffer2->toArray());
+
+    echo "\nItem Offer 3:<br />\n";
+    print_r($itemOffer3->toArray());
+ 
 See the file [get_offer_details.php]().
 
 Retreiving the details of an offer can also be done via the Javascript function covered in the [UX API]() by simply running the following as shown in file [get_offer_detailsJS.html]().
