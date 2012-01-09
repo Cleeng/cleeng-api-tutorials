@@ -1,4 +1,10 @@
 <?php
+/**
+ * Cleeng API Example 1 - Getting started with Cleeng
+ *
+ * This file should be opened in browser.
+ */
+
 // Create your offer ID with create_item_offer.php or use ID 930339322 for demo purposes.
 $itemOfferId = '930339322';
 
@@ -21,6 +27,7 @@ $cleengApi = new Cleeng_Api(array('platformUrl' => 'cleeng.local'));
 
 <?php
 
+// Check if visitor has access to protected content
 if ($cleengApi->isAccessGranted($itemOfferId)) {
     echo 'This content is accessible when you purchase it! Place here the stuff you want to sell.';
 } else {

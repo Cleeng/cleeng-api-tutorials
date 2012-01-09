@@ -1,4 +1,10 @@
 <?php
+/**
+ * Cleeng API Example 1 - Getting started with Cleeng
+ *
+ * Open this file in browser or run it from command line in order
+ * to create item offer
+ */
 
 // define PHP SDK configuration
 $platformUrl = 'cleeng.local';
@@ -15,7 +21,7 @@ $itemOfferSetup = array(
 // you don't need to touch everying below :-)
 
 // include PHP SDK
-include_once('../../lib/cleeng_api.php');
+include_once('../../cleeng-php-sdk/cleeng_api.php');
 
 // create Cleeng API object
 $cleengApi = new Cleeng_Api(array(
