@@ -3,7 +3,7 @@
  * Cleeng API Example 3 - Manage pay-per-items
  *
  * Open this file in browser or run it from command line in order
- * to update item offer
+ * to remove item offer
  */
 
 // include PHP SDK
@@ -16,16 +16,10 @@ $cleengApi = new Cleeng_Api(array(
 ));
 
 // update item offer
-$itemOffer = $cleengApi->updateItemOffer(707221016, array(
-    'description' => 'Some description',
-    'price' => 1.99    // change price
- ));
+$cleengApi->removeItemOffer(707221016);
 
-if ($itemOffer->hasErrors()) {
-    echo "Unable to update item offer:\n";
-    print_r($itemOffer->getError());
-}
+$itemOffer = $cleengApi->getItemOffer(707221016);
 
-echo "Updated item offer:\n";
+echo "Item offer is now marked as 'removed':\n";
 print_r($itemOffer->toArray());
 

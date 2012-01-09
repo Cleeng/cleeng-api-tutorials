@@ -106,7 +106,11 @@ Please be aware that if you have already sold items to customers, you might upse
 
 Use [update_offer.php]() to update an offer. 
 
-	$cleengAPI-->
+    // change price and description
+	$cleengApi->updateItemOffer(707221016, array(
+        'price' => 1.99,
+        'description' => 'new, updated description'
+     ));
 
 Use [remove_offer.php]() to delete an offer.
 
