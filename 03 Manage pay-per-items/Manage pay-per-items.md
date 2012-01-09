@@ -87,7 +87,7 @@ To find the details of an offer you have created before you can use the PHP func
  
 See the file [get_offer_details.php]().
 
-Retreiving the details of an offer can also be done via the Javascript function covered in the [UX API]() by simply running the following as shown in file [get_offer_detailsJS.html]().
+Retreiving the details of an offer can also be done via the Javascript function covered in the [UX API]() by simply running the following as shown in file [get_offer_details_JS.html]().
 
 	<script type="text/javascript" src="https://cdn.cleeng.com/js-api/2.0/api.js"></script>
 	<script type="text/javascript">
@@ -114,7 +114,10 @@ Use [update_offer.php]() to update an offer.
 
 Use [remove_offer.php]() to delete an offer.
 
-	$cleengAPI-->
+	$cleengApi->removeItemOffer(707221016);
+
+Please note that removeItemOffer won't actually delete anything from Cleeng database - it will only mark given
+item as "removed".
 
 6. Summary
 ----------
