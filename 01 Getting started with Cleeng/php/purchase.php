@@ -3,14 +3,14 @@
 $itemOfferId = '930339322';
 
 // include PHP SDK
-include_once('../../lib/cleeng_api.php');
+include_once('../../cleeng-php-sdk/cleeng_api.php');
 //$cleengApi = new Cleeng_Api(array('platformUrl' => 'staging.cleeng.com'));
 $cleengApi = new Cleeng_Api(array('platformUrl' => 'cleeng.local'));
 
 ?>
 <script type="text/javascript" src="https://cleeng.local/js-api/2.0/api.js"></script>
 <script type="text/javascript">
-  CleengApi.countImpression("<?php echo $itemOfferId ?>");
+    CleengApi.countItemOfferImpression("<?php echo $itemOfferId ?>");
     function cleengPurchase() {
         CleengApi.purchase("<?php echo $itemOfferId ?>", function (result) {
             // reload page after purchase to reveal protected item
