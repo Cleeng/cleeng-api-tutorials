@@ -1,5 +1,5 @@
 Cleeng Open Tutorial 1 - Getting Started
-=========
+========================================
 
 This basic tutorial shows you how to protect an item of your website, and how to define an offer to unprotect this item. You will learn the basics of the Cleeng API. All in just 5 minutes. This tutorial is for websites that can execute [PHP](http://php.net).
 
@@ -14,6 +14,7 @@ After this tutorial you can sell anything digital: a few lines of code, an answe
 
 1. See it in action
 -------------------
+
 Click to see a working demo: [Example 1 - Getting started](http://example)
 
 2. Get prepared
@@ -25,6 +26,7 @@ Click to see a working demo: [Example 1 - Getting started](http://example)
 
 3. Protect your item. Setup your offer. Sell it.
 -----------------------------------------------
+
 ### 3.1. Define & protect the item
 Define the part you want to protect. Use $cleengAPI->isAccessGranted() to validate if the visitor is authorized and if the item should be revealed. You can place any piece of HTML between the tags.
 
@@ -122,7 +124,7 @@ Just fill in your itemOfferId (section 3.2) and run the file!
 You are now ready to protect and sell digital content from your own website!
 
 5. Develop & test further
------------------------------------------
+-------------------------
 
 This tutorial has shown you the basics of Cleeng. We highly recommend you to continue some more tutorials to improve the user experience and to benefit from the wide range of functionality Cleeng offers. Learn how to load [async](), to [enable social commission](), do [bulk protection]() and [much, much more]().
 
@@ -136,7 +138,7 @@ Use the following credit card details to make a fake payment on sandbox:
 
 
 6. Summary
---------------------
+----------
 
 Get the package with all files [Tutorial 1 - Getting started](http://github.com/cleeng/) from Github and do the following:
 
