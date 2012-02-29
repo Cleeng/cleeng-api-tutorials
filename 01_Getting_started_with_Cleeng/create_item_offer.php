@@ -7,8 +7,8 @@
  */
 
 // define PHP SDK configuration
-$platformUrl = 'cleeng.local';
-$publisherToken = 'aHaFMTynO59PK0xEL9v9Rz6X4wYk4VM7JpHIMxCbcbsnukQ-';
+$platformUrl = 'cleeng.com';
+$publisherToken = 'YOUR_PUBLISHER_TOKEN'; // get it from http://cleeng.com/dev/api-keys
 
 // define item offer properties (for more details see reference of createItemOffer())
 $itemOfferSetup = array(
@@ -21,7 +21,7 @@ $itemOfferSetup = array(
 // you don't need to touch everying below :-)
 
 // include PHP SDK
-include_once('../../cleeng-php-sdk/cleeng_api.php');
+include_once('../cleeng-php-sdk/cleeng_api.php');
 
 // create Cleeng API object
 $cleengApi = new Cleeng_Api(array(
@@ -34,3 +34,7 @@ $itemOffer = $cleengApi->createItemOffer($itemOfferSetup);
 
 // echo ID of new item
 echo 'Created item offer with id = ' . $itemOffer->id . "\n";
+
+?>
+<hr />
+<p>&copy; Safe & secure content protection and monetization by <a href="http://cleeng.com" title="Cleeng Content Monetization" target="_blank"><img src="http://cdn.cleeng.com/images/layout/cleeng_logo_small.png" alt="Cleeng Content Monetization" title="Cleeng Content Monetization" /></a>.</p>
