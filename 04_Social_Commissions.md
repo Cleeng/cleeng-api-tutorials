@@ -1,4 +1,4 @@
-Cleeng Open Tutorial 4 - Social commissions
+Tutorial 4 - Social commissions
 ==========================================================
 
 This tutorial shows how to setup [social commissions](http://cleeng.com/us/featues/social-commissions/). It allows users to be rewarded when sharing content with their friends or followers. With the credits earned they can purchase new content (or eventually be paid out). You need to be familiar with [Tutorial 1 - Getting started]() and [Tutorial 2 - Loading content async](). This tutorial builds on that knowledge and shows how to activate social commissions on your content offers.

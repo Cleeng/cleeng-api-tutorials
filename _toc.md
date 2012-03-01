@@ -20,6 +20,6 @@ This tutorial shows how to setup and best leverage social commissions. It allows
 
 ##Practical examples
 
-**Tutorial 5: [Virtual live ticket](Tutorials/05_Virtual_ticket)**
+**Tutorial 5: [Virtual live ticket](Tutorials/05_Virtual_live_ticket)**
 
 Selling a live stream (broadcast) is simple with Cleeng. This practical example shows you how to securely protect a live video stream. Works on all devices!

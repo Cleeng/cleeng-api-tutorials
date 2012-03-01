@@ -1,4 +1,4 @@
-Cleeng Open Tutorial 3 - Set-up and manage pay-per-items
+Tutorial 3 - Set-up and manage pay-per-items
 ==========================================================
 
 This tutorial shows how to setup, update, remove and find pay-per-items via the Cleeng Open API. You need to be familiar with [Tutorial 1 - Getting started](). In tutorial 1 you learn how to protect an item and how to define an offer to unprotect this item. Basically it shows how to set up a "pay-per-item" offer, while this tutorial builds on that knowledge and shows more functionalities to manage multiple item offers.
