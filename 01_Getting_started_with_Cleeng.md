@@ -12,14 +12,14 @@ After this tutorial you can sell anything digital: a few lines of code, a video 
 5. Develop & test further
 6. Summary
 
+---
 
-1. See it in action
--------------------
+
+##1. See it in action
 
 Click to see a working demo: [Example 1 - Getting started](example/01/purchase.php).
 
-2. Get prepared
----------------------------
+##2. Get prepared
 
 Download the [example files](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github. This include the [Cleeng PHP SDK](../PHP_SDK). Place them on your server.
 
@@ -27,8 +27,7 @@ To ensure the sales are registered (and credited) to your account; you need to [
 
 Then, get a [secure Cleeng API token](https://cleeng.com/dev/api-keys). Section 3.2 below shows how to use this token.
 
-3. Protect your item. Setup your offer. Sell it.
------------------------------------------------
+##3. Protect your item. Setup your offer. Sell it.
 
 ### 3.1. Define & protect the item
 Define the part you want to protect. Use `$cleengAPI->isAccessGranted()` to validate if the visitor is authorized and if the item should be revealed. You can place any piece of HTML between the tags.
@@ -91,8 +90,8 @@ In the file [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/m
 
 In above code we also introduced the [`countItemOfferImpression`](Reference/UX_API/Functions/countItemOfferImpression). This takes care of all sales metrics.
 
-4. Full example
----------------------
+##4. Full example
+
 Below you find the full example of [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng/purchase.php) to protect and sell your digital item.
 
 Just fill in your itemOfferId (section 3.2) and run the file!
@@ -130,8 +129,8 @@ Just fill in your itemOfferId (section 3.2) and run the file!
 
 You are now ready to protect and sell digital content from your own website!
 
-5. Develop & test further
--------------------------
+##5. Develop & test further
+
 
 This tutorial has shown you the basics of Cleeng. We highly recommend you to continue some more tutorials to improve the user experience and to benefit from the wide range of functionality Cleeng offers. Learn how to load [async](Tutorials/02_Loading_content_async), to [enable social commission](Tutorials/04_Social_Commissions), do [bulk protection](Tutorials/03_Manage_pay-per-items) and [much, much more](Tutorials/).
 
@@ -144,8 +143,7 @@ Use the following credit card details to make a fake payment on sandbox:
 > cvc: 737   
 
 
-6. Summary
-----------
+##6. Summary
 
 This tutorial explains in details the [Getting started example](example/01/purchase.php) Grab the [examples files, including the PHP SDK](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
 
