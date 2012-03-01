@@ -15,7 +15,7 @@ After this tutorial you can sell anything digital: a few lines of code, a video 
 1. See it in action
 -------------------
 
-Click to see a working demo: [Example 1 - Getting started](../example/01/purchase.php).
+Click to see a working demo: [Example 1 - Getting started](example/01/purchase.php).
 
 2. Get prepared
 ---------------------------
@@ -46,7 +46,7 @@ In order to sell items you need to set-up and define your offer in advance via t
 
 Within the file [create_item_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng/create_item_offer.php) replace `YOUR_PUBLISHER_TOKEN` with the API token obtained before.
 
-Set-up your offer by defining the 3 mandatory parameters of the itemOffer. See the [reference](../Reference/Publisher_API/Functions/createItemOffer) for all options (and limitations). Most important are mentioned here:  
+Set-up your offer by defining the 3 mandatory parameters of the itemOffer. See the [reference](Reference/Publisher_API/Functions/createItemOffer) for all options (and limitations). Most important are mentioned here:  
 - `price` should be above 0.15. The currency is defined in your [publisher settings](http://cleeng.com/my-account/settings).  
 - `url` indicates on which webpage your item is accessible.  
 - `description` is a teaser shown just before your visitors decide to buy. It is limited to 110 characters.  
@@ -67,7 +67,7 @@ Run create_item_offer.php. Copy the itemOfferId that is returned from the Cleeng
 
 ### 3.3. Set-up for sale. Let your visitors purchase your item.
 
-In the file [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng/purchase.php) replace `YOUR_OFFER_ID` with the ItemOfferId you obtained in previous step. With the JavaScript function cleengPurchase() you can trigger the check-out. After the purchase it reloads the page and, for security reasons, you can validate server-side if the item should be revealed. Tutorial 2 shows you an improved user experience by loading [asyncronous / AJAX](../Tutorials/02_Loading_content_async).
+In the file [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng/purchase.php) replace `YOUR_OFFER_ID` with the ItemOfferId you obtained in previous step. With the JavaScript function cleengPurchase() you can trigger the check-out. After the purchase it reloads the page and, for security reasons, you can validate server-side if the item should be revealed. Tutorial 2 shows you an improved user experience by loading [asyncronous / AJAX](Tutorials/02_Loading_content_async).
 
     <?php
     $itemOfferId = 'YOUR_OFFER_ID';
@@ -88,7 +88,7 @@ In the file [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/m
     <a href="javascript:cleengPurchase()">Buy</a>
 
 
-In above code we also introduced the [`countItemOfferImpression`](../Reference/UX_API/Functions/countItemOfferImpression). This takes care of all sales metrics.
+In above code we also introduced the [`countItemOfferImpression`](Reference/UX_API/Functions/countItemOfferImpression). This takes care of all sales metrics.
 
 4. Full example
 ---------------------
@@ -132,7 +132,7 @@ You are now ready to protect and sell digital content from your own website!
 5. Develop & test further
 -------------------------
 
-This tutorial has shown you the basics of Cleeng. We highly recommend you to continue some more tutorials to improve the user experience and to benefit from the wide range of functionality Cleeng offers. Learn how to load [async](../Tutorials/02_Loading_content_async), to [enable social commission](../Tutorials/04_Social_Commissions), do [bulk protection](../Tutorials/03_Manage_pay-per-items) and [much, much more](../Tutorials/).
+This tutorial has shown you the basics of Cleeng. We highly recommend you to continue some more tutorials to improve the user experience and to benefit from the wide range of functionality Cleeng offers. Learn how to load [async](Tutorials/02_Loading_content_async), to [enable social commission](Tutorials/04_Social_Commissions), do [bulk protection](Tutorials/03_Manage_pay-per-items) and [much, much more](Tutorials/).
 
 Cleeng offers a [sandbox](http://sandbox.cleeng.com), so you can freely develop and test without the need to transfer real money. It also keeps your statistics on your real publisher account clean. Please be aware that for sandbox you need use a different [publisher account](http://sandbox.cleeng.com/publisher-registration) and [API token](https://sandbox.cleeng.com/dev/api-keys). 
 
@@ -146,7 +146,7 @@ Use the following credit card details to make a fake payment on sandbox:
 6. Summary
 ----------
 
-This tutorial explains in details the [Getting started example](../example/01/purchase.php) Grab the [examples files, including the PHP SDK](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
+This tutorial explains in details the [Getting started example](example/01/purchase.php) Grab the [examples files, including the PHP SDK](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
 
 * Register as publisher on [production](http://cleeng.com/publisher-registration) (or [sandbox](http://sandbox.cleeng.com/publisher-registration))
 * Grab your [API token](http://cleeng.com/dev/api-keys) (or from [sandbox](http://sandbox.cleeng.com/dev/api-keys)).
