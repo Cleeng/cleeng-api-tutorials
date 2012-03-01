@@ -12,6 +12,7 @@ After this tutorial you can sell anything digital: a few lines of code, a video 
 5. Develop & test further
 6. Summary
 
+
 1. See it in action
 -------------------
 
@@ -155,3 +156,7 @@ This tutorial explains in details the [Getting started example](example/01/purch
 * Put your item offer ID in [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng/purchase.php)
 * Within your browser - Log out from Cleeng (as you can't purchase your own offer) and run [purchase.php](https://github.com/Cleeng/cleeng-open/blob/master/public/example/01/purchase.php) in your browser. 
 * Enjoy the simple purchase process!
+
+**Anything unclear or wrong?**
+
+Let us know on [Github](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng.md) and indicate any suggestions or changes! Highly appreciated.
