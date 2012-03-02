@@ -13,20 +13,22 @@ This tutorial is for websites and applications that execute [PHP](http://php.net
 
 After this tutorial you are able to offer social commissions on your digital offers. Download from Github the [tutorial package](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) with example code.
 
+**Table of contents**
+
 1. See it in action
 2. Set-up social commissions along with your offer
 3. Engage your audience and let them share
 4. Full example: sell items with social commission
 5. Summary
 
+---
 
-1. See it in action
--------------------
+##1. See it in action
 
 Click here to see a working demo: [Example 4 - Social commissions]()
 
-2. Set-up social commissions along with your offer
----------------
+##2. Set-up social commissions along with your offer
+
 Cleeng offers a truly unique feature: [social commissions](http://cleeng.com/us/features/social-commission/). You can set this up per item you want to sell. There are two parameters you need to define when you create (or update) your itemOffer: `socialCommissionEnabled` (boolean) and `socialCommissionRate`. The rate is a percentage related to the item price and limited to 50% (=0.50).
 
 *Example: if you sell an item for $2.50, and you set socialCommissionRate to 0.40 ( = 40%), people who share that item will earn $1 when their friends or followers buy it too.*
@@ -48,8 +50,8 @@ This tutorial re-uses the files from tutorial 3 to manage your offers. Open [cre
 
 Now you have created an item with social commissions enabled.  Check [get_offer_details.php]() to validate the set-up. Continue with section 3 to let your visitors use it.
 
-3. Engage your audience and let them share
--------------------------------------------------------
+##3. Engage your audience and let them share
+
 Now that you have enabled social commission on your itemOffer it is important that you communicate this great feature to your visitors. The social commissions works through unique personalized short URLs (cleeng.it) that are accessible via the [getAccessStatus()](/Reference/Query_API/Functions/getAccessStatus). There are two important messages you should highlight to your users:
 
 1. Inform them about how much they can earn.
@@ -130,8 +132,7 @@ Alternatively you can simply load the following div class `class="cleengShare"`.
 	<div class="cleengShare"></div>
 
 
-4. Full example: sell items with social commission
--------------------------------------------------------
+##4. Full example: sell items with social commission
 
 The example of [Tutorial 2](/example/01/purchase.php) is simply extended with the social commission system. When you have set-up an itemOffer with social commission you can use the following script to sell that item and promote the social commission.
 
@@ -158,8 +159,7 @@ The example of [Tutorial 2](/example/01/purchase.php) is simply extended with th
 
 
 
-5. Summary
-----------
+##5. Summary
 
 Get the package with all example files [Tutorial 4 - Social Commissions ](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
 
