@@ -13,6 +13,9 @@ This tutorial is for websites and applications that execute [PHP](http://php.net
 
 After this tutorial you are able to manage your individual digital offers.
 
+
+**Table of contents**
+
 1. See it in action
 2. All options to set-up your single item offer
 3. Get offer details you defined before
@@ -20,6 +23,7 @@ After this tutorial you are able to manage your individual digital offers.
 5. Retrieve your default single item parameters
 6. Summary
 
+---
 
 ##1. See it in action
 
