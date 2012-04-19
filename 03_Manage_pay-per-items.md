@@ -59,7 +59,7 @@ In order to give you some flexibility there are two attributes `myId` and `myDat
 
 ### 2.5. To save all these options
 
-Now open [create_item_offer_all.php]() and edit the parameters as you wish. Run the file to create and define your offer on the Cleeng servers. Copy the item offer ID that is returned from the Cleeng servers and use it in order to sell your item as shown in tutorial 1 and 2.
+Now open [create_item_offer_all.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/create_item_offer_all.php) and edit the parameters as you wish. Run the file to create and define your offer on the Cleeng servers. Copy the item offer ID that is returned from the Cleeng servers and use it in order to sell your item as shown in tutorial 1 and 2.
 
       $itemOffer = $cleengApi->createItemOffer(array(
           'price' => 0.49,
@@ -96,26 +96,24 @@ To find the details of an offer you have created before you can use the PHP func
     echo "\nItem Offer 3:<br />\n";
     print_r($itemOffer3->toArray());
  
-See the file [get_offer_details.php]().
+See the file [get_offer_details.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/get_offer_details.php).
 
-Retreiving the details of an offer can also be done via the Javascript function covered in the [UX API]() by simply running the following as shown in file [get_offer_details_JS.html]().
+Retreiving the details of an offer can also be done via the Javascript function covered in the [CleengApi.getItemOffer()](http://cleeng.com/open/Reference/Query_API/Functions/getItemOffer) by simply running the following as shown in file [get_offer_details_JS.html](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/get_offer_details_JS.html).
 
-	<script type="text/javascript" src="https://cdn.cleeng.com/js-api/2.0/api.js"></script>
+	<script type="text/javascript" src="https://cleeng.com/js-api/2.0/api.js"></script>
 	<script type="text/javascript">
    	CleengApi.getItemOffer(930339322, function(itemOffer) {
         alert('Item description: ' + itemOffer.description);
     });
     </script>
 
-In case you don't know the offerId anymore, you can retreive them by using function x.
-
 ##4. Update or remove offers
 
 Once you have created your offer you might want to update some parameters, or even completely remove the offer. 
 
-Please be aware that if you have already sold items to customers, you might upset them once you change something or remove the items entirely. So use these functions smartly. Obviously you can only update or remove items from yourself.
+Please be aware that if you have already sold items to customers, you might upset them once you change something or remove the items entirely. So use these functions smartly. Obviously you can only update or remove items that you have published yourself.
 
-Use [update_offer.php]() to update an offer. 
+Use [update_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/update_offer.php) to update an offer. 
 
     // change price and description
 	$cleengApi->updateItemOffer(707221016, array(
@@ -123,7 +121,7 @@ Use [update_offer.php]() to update an offer.
         'description' => 'new, updated description'
      ));
 
-Use [remove_offer.php]() to delete an offer.
+Use [remove_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/remove_offer.php) to delete an offer.
 
 	$cleengApi->removeItemOffer(707221016);
 
@@ -140,8 +138,8 @@ Get the package with all [examples](https://github.com/Cleeng/cleeng-api-tutoria
 
 * Ensure you are registered as publisher and have your API token entered in the config.php file - see [tutorial 1](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng)
 * To enjoy the extra features like social commission or rent, complete the sales parameters in [create_offer_all.php](http://github.com/cleeng). Run the file in your browser - this generates your item offer ID
-* Put your item offer ID in the other files. To see the details of the offer: [get_offer_details.php](http://github.com/cleeng), update the offer: [update_offer.php]() or delete the offer: [remove_offer.php].
-* Now you are able to manage your digital offers. You can setup, update, remove and find pay-per-items via the Cleeng Open API.
+* Put your item offer ID in the other files. To see the details of the offer: [get_offer_details.php](http://github.com/cleeng), update the offer: [update_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/update_offer.php) or delete the offer: [remove_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/remove_offer.php).
+* Now you are able to manage your digital offers. You can setup, update, and remove pay-per-items via the Cleeng Open API.
 
 **Anything unclear or wrong?**
 
