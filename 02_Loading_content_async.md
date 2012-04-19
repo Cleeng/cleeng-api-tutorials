@@ -2,7 +2,7 @@ Tutorial 2 - Load purchased item async
 ==================================================
 
 This tutorial shows how to reveal purchased content using AJAX. To understand the full tutorial, basic knowledge of
-jQuery and PHP is required. At this point we assume that you are familiar with [Tutorial 1 - Getting started](Tutorials/01_Getting_started_with_Cleeng), and you already created an itemOffer in Tutorial 1. 
+jQuery and PHP is required. At this point we assume that you are familiar with [Tutorial 1 - Getting started](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng), and you already created an itemOffer in Tutorial 1. 
 
 **Table of contents**
 
@@ -16,13 +16,13 @@ jQuery and PHP is required. At this point we assume that you are familiar with [
 
 ##1. See it in action
 
-Click here to see (or unfold) a working demo: [Example 2 - Load purchased item async](example/02/purchase.php)
+Click here to see (or unfold) a working demo: [Example 2 - Load purchased item async](http://cleeng.com/open/example/02/purchase.php)
 
 
 ##2. Loading async
 
 ### 2.1. Why loading async
-In [Tutorial 1](Tutorials/01_Getting_started_with_Cleeng), after the visitor made the purchase, we simply refreshed the full page to reveal the item. This works well for a simple, almost empty HTML document. However, usually your page will contain a lot of HTML code, images, flash animations etc. Refreshing the full page will give an unneccesary delay. Obviously this should be avoided. By loading asynchronously (with AJAX) the user experience is improved signifcantly as we only load the purchased content from the server.
+In [Tutorial 1](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng), after the visitor made the purchase, we simply refreshed the full page to reveal the item. This works well for a simple, almost empty HTML document. However, usually your page will contain a lot of HTML code, images, flash animations etc. Refreshing the full page will give an unneccesary delay. Obviously this should be avoided. By loading asynchronously (with AJAX) the user experience is improved signifcantly as we only load the purchased content from the server.
 
 ### 2.2. Configure the files for this example: config.php
 Get the [example files](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github. You can re-use the `itemOfferId` from example 1 or create a new one. In this example, in order to load async there is a second file: [ajax.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Loading_content_async/ajax.php). To simplify the configuration we have defined [config.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Loading_content_async/config.php). In here you need to define the `itemOfferId` and the actual content that you protect and sell. Obviously when you would sell multiple items from your website, you won't define it in this config file, but you would load the revealed content from a database.
@@ -55,7 +55,7 @@ This example follows jQuery conventions. It uses jQuery's `click()` to trigger t
 	?>
     
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cleeng.local/js-api/2.0/api.js"></script>
+	<script type="text/javascript" src="https://cleeng.com/js-api/2.0/api.js"></script>
 	<script type="text/javascript">
 	$('document').ready(function() {
    		$('#purchase').click(function() {
@@ -85,10 +85,14 @@ This example follows jQuery conventions. It uses jQuery's `click()` to trigger t
 
 ##5. Summary
 
-This tutorial explains in details the [Loading content async example](example/02/purchase.php).
+This tutorial explains in details the [Loading content async example](http://cleeng.com/open/example/02/purchase.php).
 Get the package with all [example files](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
 
-* Ensure you are registered as publisher and have defined an offer, resulting in a `itemOfferId` - see [tutorial 1](Tutorials/01_Getting_started_with_Cleeng)
+* Ensure you are registered as publisher and have defined an offer, resulting in a `itemOfferId` - see [tutorial 1](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng)
 * Edit [config.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Loading_content_async/config.php) and fill in the `itemOfferId` and define the content you want to protect
 * Within your browser - Log out from Cleeng (as you can't purchase your own offer) and run [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Loading_content_async/purchase.php) from your own server. 
 * Enjoy the great purchase experience!
+
+**Anything unclear or wrong?**
+
+Let us know on [Github](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Loading_content_async.md) and indicate any suggestions or changes! Highly appreciated.

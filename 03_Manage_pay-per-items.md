@@ -7,7 +7,7 @@ Tutorial 3 - Set-up and manage pay-per-items
 </div>
 
 
-This tutorial shows how to setup, update, remove and find pay-per-items via the Cleeng Open API. You need to be familiar with [Tutorial 1 - Getting started](/Tutorials/01_Getting_started_with_Cleeng). In tutorial 1 you learn how to protect an item and how to define an offer to unprotect this item. Basically it shows how to set up a "pay-per-item" offer, while this tutorial builds on that knowledge and shows more functionalities to manage multiple item offers.
+This tutorial shows how to setup, update, remove and find pay-per-items via the Cleeng Open API. You need to be familiar with [Tutorial 1 - Getting started](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng). In tutorial 1 you learn how to protect an item and how to define an offer to unprotect this item. Basically it shows how to set up a "pay-per-item" offer, while this tutorial builds on that knowledge and shows more functionalities to manage multiple item offers.
 
 This tutorial is for websites and applications that execute [PHP](http://php.net).
 
@@ -31,14 +31,14 @@ Click here to see (or unfold) a working demo: [Example 3 - Manage pay-per-item s
 
 ##2. All options to set-up your single item offer
 
-In [Tutorial 1](/Tutorials/01_Getting_started_with_Cleeng) we already showed you how to set-up one offer. Though only the absolute basics were shown. When you create an itemOffer, there are actually many more features you can use.
+In [Tutorial 1](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng) we already showed you how to set-up one offer. Though only the absolute basics were shown. When you create an itemOffer, there are actually many more features you can use.
 
 ### 2.1. Social commission
 Cleeng offers a truly unique feature: a [social commission](http://cleeng.com/us/features/social-commission/) system allowing users to be rewarded when sharing your content with their friends or followers. There are two parameters you need to set if you want to enable this: `socialCommisionEnabled` (boolean) and `socialCommissionRate` (0-0.50). The rate is a figure in between 0 and 0.50, and is related to the item price. 
 
 Example: if you sell an item for 2 USD, and you set socialCommissionRate to 0.40 ( = 40%), people who share that item will earn 80 cents when their friends or followers buy it too.
 
-[Tutorial 4](/Tutorials/04_Social_Commisions) is all about this unique functionality and will explain in depth how to fully leverage social commissions.
+[Tutorial 4](http://cleeng.com/open/Tutorials/04_Social_Commisions) is all about this unique functionality and will explain in depth how to fully leverage social commissions.
 
 ### 2.2. Making your protection dependent on time or dates
 Some types of digital content have a perceived value that changes over time. Some items only have value directly after it is published (e.g. breaking news), while other materials gain its value as research material over time (e.g. archives). With Cleeng you can define a specific period for which your offer is applicable. Outside these dates, access is granted automatically to your visitors. 
@@ -82,7 +82,7 @@ Now open [create_item_offer_all.php]() and edit the parameters as you wish. Run 
 
 To find the details of an offer you have created before you can use the PHP function `getItemOffer()`.
 
-// replace with the itemOfferId you created before:
+	// replace with the itemOfferId you created before:
 	$itemOffer1 = $cleengApi->getItemOffer(930339322); 
     $itemOffer2 = $cleengApi->getItemOffer(108640889);
     $itemOffer3 = $cleengApi->getItemOffer(427318025);
@@ -136,9 +136,13 @@ Please contact Cleeng if you are interested in setting up using default paramete
 
 ##6. Summary
 
-Get the package with all files [Tutorial 3 - ](http://github.com/cleeng/) from Github and do the following:
+Get the package with all [examples](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
 
-* Ensure you are registered as publisher and have your API token entered in the config.php file - see [tutorial 1]()
+* Ensure you are registered as publisher and have your API token entered in the config.php file - see [tutorial 1](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng)
 * To enjoy the extra features like social commission or rent, complete the sales parameters in [create_offer_all.php](http://github.com/cleeng). Run the file in your browser - this generates your item offer ID
 * Put your item offer ID in the other files. To see the details of the offer: [get_offer_details.php](http://github.com/cleeng), update the offer: [update_offer.php]() or delete the offer: [remove_offer.php].
 * Now you are able to manage your digital offers. You can setup, update, remove and find pay-per-items via the Cleeng Open API.
+
+**Anything unclear or wrong?**
+
+Let us know on [Github](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng.md) and indicate any suggestions or changes! Highly appreciated.
