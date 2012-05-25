@@ -32,6 +32,7 @@ Then, get a [secure Cleeng API token](https://cleeng.com/dev/api-keys). Section 
 ### 3.1. Define & protect the item
 Define the part you want to protect. Use `$cleengAPI->isAccessGranted()` to validate if the visitor is authorized and if the item should be revealed. You can place any piece of HTML between the tags.
 
+    ```php
 	... place the following within your HTML.
 	<?php if ($cleengAPI->isAccessGranted($itemOfferId)) {  ?>
         This content is accessible when you purchase it! 
@@ -40,6 +41,7 @@ Define the part you want to protect. Use `$cleengAPI->isAccessGranted()` to vali
     	Content not accessible. <a href="javascript:cleengPurchase()">Buy</a>
     <?php } ?>
 	.....remainder of you webpage.
+	```
 
 ### 3.2. Set-up your offer on cleeng
 In order to sell items you need to set-up and define your offer in advance via the Cleeng API. This way Cleeng ensures a secure transaction and offers unique features like social commissions and a personal library for your visitors. 
@@ -50,7 +52,8 @@ Set-up your offer by defining the 3 mandatory parameters of the itemOffer. See t
 - `price` should be above 0.15. The currency is defined in your [publisher settings](http://cleeng.com/my-account/settings).  
 - `url` indicates on which webpage your item is accessible.  
 - `description` is a teaser shown just before your visitors decide to buy. It is limited to 110 characters.  
-   
+
+    ```php
      $cleengAPI = new CleengClient(array(
         'publisherToken' => 'YOUR_PUBLISHER_TOKEN'
      ));
@@ -62,6 +65,7 @@ Set-up your offer by defining the 3 mandatory parameters of the itemOffer. See t
      ));
 
      echo "You have set-up an offer on Cleeng servers with ID=$itemOfferId";
+     ```
 
 Run create_item_offer.php. Copy the itemOfferId that is returned from the Cleeng servers and use it in next section.
 
@@ -69,6 +73,7 @@ Run create_item_offer.php. Copy the itemOfferId that is returned from the Cleeng
 
 In the file [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng/purchase.php) replace `YOUR_OFFER_ID` with the ItemOfferId you obtained in previous step. With the JavaScript function cleengPurchase() you can trigger the check-out. After the purchase it reloads the page and, for security reasons, you can validate server-side if the item should be revealed. Tutorial 2 shows you an improved user experience by loading [asyncronous / AJAX](http://cleeng.com/open/Tutorials/02_Loading_content_async).
 
+    ```php
     <?php
     $itemOfferId = 'YOUR_OFFER_ID';
     ?>
@@ -86,7 +91,7 @@ In the file [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/m
     </script>
 
     <a href="javascript:cleengPurchase()">Buy</a>
-
+    ```
 
 In above code we also introduced the [`countItemOfferImpression`](http://cleeng.com/open/Reference/UX_API/Functions/countItemOfferImpression). This takes care of all sales metrics.
 
@@ -96,6 +101,7 @@ Below you find the full example of [purchase.php](https://github.com/Cleeng/clee
 
 Just fill in your itemOfferId (section 3.2) and run the file!
 
+    ```php
     <?php
     // Create your offer ID with create_item_offer.php.
     $itemOfferId = 'YOUR_OFFER_ID'; 
@@ -126,6 +132,7 @@ Just fill in your itemOfferId (section 3.2) and run the file!
     	Content not accessible. <a href="javascript:cleengPurchase()">Buy</a>
     <?php } ?>
 	.....remainder of you webpage.
+	```
 
 You are now ready to protect and sell digital content from your own website!
 
