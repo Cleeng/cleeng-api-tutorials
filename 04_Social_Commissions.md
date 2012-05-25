@@ -2,8 +2,8 @@ Tutorial 4 - Social commissions
 ==========================================================
 
 
-<div class="alert-message warning">
-<p><strong>Warning!</strong> This tutorial is still in draft.</p>
+<div class="alert">
+<strong>Warning!</strong> This tutorial is still in draft.
 </div>
 
 
@@ -35,6 +35,7 @@ Cleeng offers a truly unique feature: [social commissions](http://cleeng.com/us/
 
 This tutorial re-uses the files from tutorial 3 to manage your offers. Open [create_item_offer.php]() and edit the parameters as you wish (or use [update_item_offer.php]()). Just like in Tutorial 1, run the file to create and define your offer on the Cleeng servers, though now with the two social commission parameters. Copy the itemOfferId that is returned from the Cleeng servers and put them in the [config]() file in the example 4 folder.
 
+    ```php
 	 // To set-up a social commission of $1 we need to set 40% of the item price ($2.50)
 	 // So socialCommisionRate = 0.40 (=40%)
      $itemOffer = $cleengApi->createItemOffer(array(
@@ -47,6 +48,7 @@ This tutorial re-uses the files from tutorial 3 to manage your offers. Open [cre
           'socialCommissionRate'=> '0.40'
        ));
        echo 'Created item offer with id = ' . $itemOffer->id . "\n";
+       ```
 
 Now you have created an item with social commissions enabled.  Check [get_offer_details.php]() to validate the set-up. Continue with section 3 to let your visitors use it.
 
@@ -62,6 +64,7 @@ You can explain the rate you have set and just write some plain text on your web
 
 Example in PHP:
 
+    ```php
 	// NOTE: CODE TO BE UPDATED
 	$accessStatus = $cleengApi->getAccessStatus(123123123);
 
@@ -77,10 +80,12 @@ Example in PHP:
 		}
 		echo "<br /><i>Money is transferred to your account and can be used to purchase more content.</i>";
 	}
+	```
 
 
 Example in JavaScript:
 
+    ```javascript
 	// NOTE: CODE TO BE UPDATED
 	// After purchase you can show an alert like this:
 	CleengApi.getItemOffer(123123123, function(itemOffer) {
@@ -89,13 +94,15 @@ Example in JavaScript:
 	CleengApi.getAccessStatus(123123123, function(accessStatus) {
 		alertmsg.= accessStatus.socialCommissionURL;
 	}
-     alert(alertmsg);
+    alert(alertmsg);
+    ````
 		
 *Note: the social commission is only credited when the special cleeng.it URL is used to share the item. So ensure your users are instructed to use this.*
 
 ### 3.2 Informing about social commissions.
 When somebody purchases your item, a unique short-URL (cleeng.it) is created. In order for the social commission to be activated, this is what needs to be shared. The commission is credited to the original sharer when friends or followers purchase via this URL. This URL is retreived with `$cleengAPI->xxx` and can be used within different social tools like Twitter or Facebook, or communicated directly.
 
+    ```php
 	// NOTE: CODE TO BE UPDATED
 	$itemOfferId = 12312313;
 	
@@ -121,6 +128,7 @@ When somebody purchases your item, a unique short-URL (cleeng.it) is created. In
 		// Communicate the link itself:
 		echo 'Share your unique link and earn credits to buy more content: <a href="'.$accessStatus->socialCommissionUrl.'">'.$accessStatus->socialCommissionUrl.'</a>';
 	}
+	```php
 
 Alternatively you can simply load the following div class `class="cleengShare"`. When an item is purchased it will display the above sharing options for Facebook, Twitter, Email and display the URL itself. You need to load the JS file: `cleengSocial.js`.
 

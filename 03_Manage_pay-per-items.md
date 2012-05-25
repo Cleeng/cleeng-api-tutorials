@@ -2,8 +2,8 @@ Tutorial 3 - Set-up and manage pay-per-items
 ==========================================================
 
 
-<div class="alert-message warning">
-<p><strong>Warning!</strong> This tutorial is still in draft.</p>
+<div class="alert">
+<strong>Warning!</strong> This tutorial is still in draft.
 </div>
 
 
