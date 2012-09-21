@@ -18,7 +18,7 @@ $cleengApi = new Cleeng_Api();
 //$cleengApi = new Cleeng_Api(array('platformUrl' => 'sandbox.cleeng.com'));
 
 ?>
-<script type="text/javascript" src="https://cleeng.com/js-api/2.0/api.js"></script>
+<script type="text/javascript" src="http://cdn.cleeng.com/js-api/2.0/api.js"></script>
 <script type="text/javascript">
     CleengApi.countItemOfferImpression("<?php echo $itemOfferId ?>");
     function cleengPurchase() {

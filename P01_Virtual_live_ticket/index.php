@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
 Basic template to sell Virtual Tickets for Live Video events using Cleeng
 V0.9 - 2012 (c) -  Cleeng - instant access to quality content
 
@@ -15,7 +15,7 @@ IN CASE YOU WANT TO BENEFIT FROM CLEENG VIP SUPPORT FOR YOUR CUSTOMERS, PLEASE C
 */
 
 // In config.php define:
-// 1. the protected content (your video stream) 
+// 1. the protected content (your video stream)
 // 2. the itemOfferId (see for more info: create_item_offer.php)
 
 // include Cleeng configuration file
@@ -35,7 +35,7 @@ include 'config.php';
 <title></title>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cleeng.com/js-api/2.0/api.js"></script>
+<script type="text/javascript" src="http://cdn.cleeng.com/js-api/2.0/api.js"></script>
 <script type="text/javascript">
 <!-- loads protected content instantly with AJAX after payment is confirmed -->
 function reveal() {
@@ -76,59 +76,59 @@ $('document').ready(function() {
 <body>
 
 	<div class="content">
-    	
+
         <div class="ticket">
-        
+
         	<h1>Virtual Ticket [EVENT NAME]</h1>
             <h2>Live in HD from [YOUR LOCATION] on [DATE] from [TIME] to [TIME (timezone)]</h2>
-            
+
         </div>
-        
+
         <div class="screen">
-        	
-        
+
+
 <?
 // Check if visitor has access to protected content
 if ($cleengApi->isAccessGranted($itemOfferId)) {
 	echo '<div id="protected_content" class="video">';
 	echo $itemToProtect; //defined in config.php
 	echo '</div>';
-} else { 
-// show wrapper, also display the empty div "protected content" to load via AJAX after purchase is made. 
+} else {
+// show wrapper, also display the empty div "protected content" to load via AJAX after purchase is made.
 	?>
 			<div id="protected_content" class="video"></div>
         	<div id="wrapper" class="wrapper">
-        		                
+
                 <h3>Virtual ticket for [EVENT NAME]<br /></h3>
                 <p class="join-us">Join us at [EVENT NAME]... <br />....from the comfort of your own home!</p>
-                
+
                 <p class="text-1">This virtual ticket lets you experience the sights and sounds of [EVENT NAME] through a live, high-definition Internet video stream.</p>
-                
+
                 <p class="text-2">It provides full access to the event and can be watch from your home, mobile or iPad!</p>
-                
+
                 <span class="price">$7.95</span>
 
                 <a href="#" id="buynow" class="purchase">Buy Now</a>
-                
+
                 <div class="already">Already bought a ticket? <a href="#" id="cleenglogin">Login here</a></div>
-        	    
+
 			</div>
     <?
-} 
+}
 ?>
         </div>
-        
+
         <div class="bottom-links">
-        	            
+
             <a href="faq.html" class="faq">FAQ &amp; Support</a>
             <a href="http://www.facebook.com/sharer.php?u=http://your-url.com" class="facebook" target="_blank">Post on Facebook</a>
-            <a href="http://twitter.com/?status=Check this out! Pre-book a virtual ticket for [EVENT NAME] broadcasting HD live: http://your-url.com" class="twitter" target="_blank">Post on Twitter</a>       
-        
+            <a href="http://twitter.com/?status=Check this out! Pre-book a virtual ticket for [EVENT NAME] broadcasting HD live: http://your-url.com" class="twitter" target="_blank">Post on Twitter</a>
+
             <p class="powered">&copy; 2012 - Virtual ticket template powered by Cleeng</p>
 
-        
+
         </div>
-        
+
     </div>
 
 

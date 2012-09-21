@@ -11,7 +11,7 @@ include 'config.php';
 ?>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cleeng.com/js-api/2.0/api.js"></script>
+<script type="text/javascript" src="http://cdn.cleeng.com/js-api/2.0/api.js"></script>
 <script type="text/javascript">
 $('document').ready(function() {
     CleengApi.countItemOfferImpression("<?php echo $itemOfferId ?>");

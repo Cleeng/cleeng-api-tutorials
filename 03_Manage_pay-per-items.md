@@ -34,14 +34,14 @@ Click here to see (or unfold) a working demo: [Example 3 - Manage pay-per-item s
 In [Tutorial 1](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng) we already showed you how to set-up one offer. Though only the absolute basics were shown. When you create an itemOffer, there are actually many more features you can use.
 
 ### 2.1. Social commission
-Cleeng offers a truly unique feature: a [social commission](http://cleeng.com/us/features/social-commission/) system allowing users to be rewarded when sharing your content with their friends or followers. There are two parameters you need to set if you want to enable this: `socialCommisionEnabled` (boolean) and `socialCommissionRate` (0-0.50). The rate is a figure in between 0 and 0.50, and is related to the item price. 
+Cleeng offers a truly unique feature: a [social commission](http://cleeng.com/us/features/social-commission/) system allowing users to be rewarded when sharing your content with their friends or followers. There are two parameters you need to set if you want to enable this: `socialCommisionEnabled` (boolean) and `socialCommissionRate` (0-0.50). The rate is a figure in between 0 and 0.50, and is related to the item price.
 
 Example: if you sell an item for 2 USD, and you set socialCommissionRate to 0.40 ( = 40%), people who share that item will earn 80 cents when their friends or followers buy it too.
 
 [Tutorial 4](http://cleeng.com/open/Tutorials/04_Social_Commisions) is all about this unique functionality and will explain in depth how to fully leverage social commissions.
 
 ### 2.2. Making your protection dependent on time or dates
-Some types of digital content have a perceived value that changes over time. Some items only have value directly after it is published (e.g. breaking news), while other materials gain its value as research material over time (e.g. archives). With Cleeng you can define a specific period for which your offer is applicable. Outside these dates, access is granted automatically to your visitors. 
+Some types of digital content have a perceived value that changes over time. Some items only have value directly after it is published (e.g. breaking news), while other materials gain its value as research material over time (e.g. archives). With Cleeng you can define a specific period for which your offer is applicable. Outside these dates, access is granted automatically to your visitors.
 
 In order to enable the protection for a certain period you need to switch on `hasProtectionDate` and define at minimum one of the dates. In below example the item is protected until the end of 2012.
 
@@ -76,14 +76,14 @@ Now open [create_item_offer_all.php](https://github.com/Cleeng/cleeng-api-tutori
           'myData' => '',
        ));
        echo 'Created item offer with id = ' . $itemOffer->id . "\n";
- 
+
 
 ##3. Get details of the offers you defined before
 
 To find the details of an offer you have created before you can use the PHP function `getItemOffer()`.
 
 	// replace with the itemOfferId you created before:
-	$itemOffer1 = $cleengApi->getItemOffer(930339322); 
+	$itemOffer1 = $cleengApi->getItemOffer(930339322);
     $itemOffer2 = $cleengApi->getItemOffer(108640889);
     $itemOffer3 = $cleengApi->getItemOffer(427318025);
 
@@ -95,12 +95,12 @@ To find the details of an offer you have created before you can use the PHP func
 
     echo "\nItem Offer 3:<br />\n";
     print_r($itemOffer3->toArray());
- 
+
 See the file [get_offer_details.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/get_offer_details.php).
 
 Retreiving the details of an offer can also be done via the Javascript function covered in the [CleengApi.getItemOffer()](http://cleeng.com/open/Reference/Query_API/Functions/getItemOffer) by simply running the following as shown in file [get_offer_details_JS.html](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/get_offer_details_JS.html).
 
-	<script type="text/javascript" src="https://cleeng.com/js-api/2.0/api.js"></script>
+	<script type="text/javascript" src="http://cdn.cleeng.com/js-api/2.0/api.js"></script>
 	<script type="text/javascript">
    	CleengApi.getItemOffer(930339322, function(itemOffer) {
         alert('Item description: ' + itemOffer.description);
@@ -109,11 +109,11 @@ Retreiving the details of an offer can also be done via the Javascript function 
 
 ##4. Update or remove offers
 
-Once you have created your offer you might want to update some parameters, or even completely remove the offer. 
+Once you have created your offer you might want to update some parameters, or even completely remove the offer.
 
 Please be aware that if you have already sold items to customers, you might upset them once you change something or remove the items entirely. So use these functions smartly. Obviously you can only update or remove items that you have published yourself.
 
-Use [update_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/update_offer.php) to update an offer. 
+Use [update_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Manage_pay-per-items/update_offer.php) to update an offer.
 
     // change price and description
 	$cleengApi->updateItemOffer(707221016, array(

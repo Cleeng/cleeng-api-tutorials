@@ -2,7 +2,7 @@ Tutorial 2 - Load purchased item async
 ==================================================
 
 This tutorial shows how to reveal purchased content using AJAX. To understand the full tutorial, basic knowledge of
-jQuery and PHP is required. At this point we assume that you are familiar with [Tutorial 1 - Getting started](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng), and you already created an itemOffer in Tutorial 1. 
+jQuery and PHP is required. At this point we assume that you are familiar with [Tutorial 1 - Getting started](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng), and you already created an itemOffer in Tutorial 1.
 
 **Table of contents**
 
@@ -33,7 +33,7 @@ Get the [example files](https://github.com/Cleeng/cleeng-api-tutorials/zipball/m
 When the page is delivered an initial validation with `isAccessGranted` is done like in tutorial 1.  To load the content asynchronously after it is purchased we call `ajax.php` to verify access again. When the content is accessible it will return the content, otherwise be empty.
 
 PHP script responsible for loading data should be as light as possible - usually it will only call isAccessGranted() API,
-load some content from database and return it. 
+load some content from database and return it.
 
 
 	include 'config.php';
@@ -41,7 +41,7 @@ load some content from database and return it.
 	if ($cleengApi->isAccessGranted($itemOfferId)) {
     	// usually this will be loaded from database
     	echo $contentToProtect;
-	} 
+	}
 
 
 ##4. Purchase page
@@ -53,9 +53,9 @@ This example follows jQuery conventions. It uses jQuery's `click()` to trigger t
   	<?php
 	include 'config.php';
 	?>
-    
+
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cleeng.com/js-api/2.0/api.js"></script>
+	<script type="text/javascript" src="http://cdn.cleeng.com/js-api/2.0/api.js"></script>
 	<script type="text/javascript">
 	$('document').ready(function() {
    		$('#purchase').click(function() {
@@ -71,7 +71,7 @@ This example follows jQuery conventions. It uses jQuery's `click()` to trigger t
    		});
 	});
 	</script>
-	
+
 	<?php
 
 	if ($cleengApi->isAccessGranted($itemOfferId)) {
@@ -90,7 +90,7 @@ Get the package with all [example files](https://github.com/Cleeng/cleeng-api-tu
 
 * Ensure you are registered as publisher and have defined an offer, resulting in a `itemOfferId` - see [tutorial 1](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng)
 * Edit [config.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Loading_content_async/config.php) and fill in the `itemOfferId` and define the content you want to protect
-* Within your browser - Log out from Cleeng (as you can't purchase your own offer) and run [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Loading_content_async/purchase.php) from your own server. 
+* Within your browser - Log out from Cleeng (as you can't purchase your own offer) and run [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Loading_content_async/purchase.php) from your own server.
 * Enjoy the great purchase experience!
 
 **Anything unclear or wrong?**
