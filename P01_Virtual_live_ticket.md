@@ -29,9 +29,9 @@ Please check with your supplier the exact conditions for Live streaming of event
 
 These are the important elements to have upfront:
 
-- When do you want to start doing pre-booking. At minimum, offer pre-booking 1 to 2 weeks before the show. This way, you can generate more buzz, without impacting your full price ticket sales. Note, we hardly see any cannibalization between real and virtual ticket users. 
+- When do you want to start doing pre-booking. At minimum, offer pre-booking 1 to 2 weeks before the show. This way, you can generate more buzz, without impacting your full price ticket sales. Note, we hardly see any cannibalization between real and virtual ticket users.
 - When is the event itself, on which timezones.
-- What price for the live show. As a guideline, we recommend that the price of the show is around 1/10th of the event price. Though, it may vary if the event is for very engaged audience. For example, Blizzard Entertainment, producers of World of Warcraft, did in 2011 their live conference in Las Vegas, with a ticket price of $175. They also sold virtual tickets for $39.95 and sold 1000's 
+- What price for the live show. As a guideline, we recommend that the price of the show is around 1/10th of the event price. Though, it may vary if the event is for very engaged audience. For example, Blizzard Entertainment, producers of World of Warcraft, did in 2011 their live conference in Las Vegas, with a ticket price of $175. They also sold virtual tickets for $39.95 and sold 1000's
 - What is the agenda of the live footage: what people will be able to see, participate, etc.
 
 **Step 4: Design your page**
@@ -49,15 +49,15 @@ Or check http://demos.cleeng.com/virtualticket for some essential elements.
 
 **Step 5: Integration**
 
-The protection and access methodologies used for live streaming are very similar to [tutorial 1](../Tutorials/01_Getting_started_with_Cleeng) and [tutorial 2](../Tutorials/02_Loading_content_async). Make sure you are familiar with those. 
+The protection and access methodologies used for live streaming are very similar to [tutorial 1](Tutorials/01_Getting_started_with_Cleeng) and [tutorial 2](Tutorials/02_Loading_content_async). Make sure you are familiar with those.
 In those examples only text is protected and revealed, but now we enhance that by revealing the player.
 Most providers provide an easy embed that can be used; please ensure you set-up the right embed to ensure you support both Flash and HTML5 streams.
- 
+
 To make the set-up secure; your video service should have domain restrictions enabled for only your domain.
 
 [Download](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) the full example from Github and place it on your server.
 
-- Use [create_item_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/05_Virtual_live_ticket/faq.html) to define your sales offer (see tutorial 1, or the file itself for instructions). You receive an `offerItemId` to be used. 
+- Use [create_item_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/05_Virtual_live_ticket/faq.html) to define your sales offer (see tutorial 1, or the file itself for instructions). You receive an `offerItemId` to be used.
 - Open config.php and fill in your `offerItemId`, and define the exact content that is protected
 
 - Integrate your design with the template package.
@@ -65,7 +65,7 @@ To make the set-up secure; your video service should have domain restrictions en
 
 **Step6: Customer support needs**
 
-What is important to estimate your traffic and actual ticket sales. For Live Events instant VIP customer support is very important, to be able to react within 30 minutes. 
+What is important to estimate your traffic and actual ticket sales. For Live Events instant VIP customer support is very important, to be able to react within 30 minutes.
 
 ALWAYS indicate your sales estimates to Cleeng. Please [contact](http://cleeng.com/company/contact) Cleeng for the options on VIP support.
 

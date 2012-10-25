@@ -7,7 +7,7 @@ Tutorial 4 - Social commissions
 </div>
 
 
-This tutorial shows how to setup [social commissions](http://cleeng.com/us/featues/social-commissions/). It allows users to be rewarded when sharing content with their friends or followers. With the credits earned they can purchase new content (or eventually be paid out). You need to be familiar with [Tutorial 1 - Getting started](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng) and [Tutorial 2 - Loading content async](http://cleeng.com/open/Tutorials/02_Loading_content_async). This tutorial builds on that knowledge and shows how to activate social commissions on your content offers.
+This tutorial shows how to setup [social commissions](http://cleeng.com/us/features/social-commission/). It allows users to be rewarded when sharing content with their friends or followers. With the credits earned they can purchase new content (or eventually be paid out). You need to be familiar with [Tutorial 1 - Getting started](http://cleeng.com/open/Tutorials/01_Getting_started_with_Cleeng) and [Tutorial 2 - Loading content async](http://cleeng.com/open/Tutorials/02_Loading_content_async). This tutorial builds on that knowledge and shows how to activate social commissions on your content offers.
 
 This tutorial is for websites and applications that execute [PHP](http://php.net).
 
@@ -76,7 +76,7 @@ Example in PHP:
 		// show the currency of the user (or default from the publisher), and calculate the exact value the user
 		echo "Share and Earn ".$cleengAPI->currency." ".round($itemOffer->price*$cleengAPI->socialCommissionRate,2);
 		if ($cleengApi->isAccessGranted) {
-			echo " by using this URL: ".$accessStatus->socialCommissionUrl; 
+			echo " by using this URL: ".$accessStatus->socialCommissionUrl;
 		}
 		echo "<br /><i>Money is transferred to your account and can be used to purchase more content.</i>";
 	}
@@ -96,7 +96,7 @@ Example in JavaScript:
 	}
     alert(alertmsg);
     ````
-		
+
 *Note: the social commission is only credited when the special cleeng.it URL is used to share the item. So ensure your users are instructed to use this.*
 
 ### 3.2 Informing about social commissions.
@@ -105,7 +105,7 @@ When somebody purchases your item, a unique short-URL (cleeng.it) is created. In
     ```php
 	// NOTE: CODE TO BE UPDATED
 	$itemOfferId = 12312313;
-	
+
 	$accessStatus = $cleengApi->getAccessStatus($itemOfferId);
 	$user = $cleengApi->getUserInfo();
 	$itemOffer = $cleengApi -> getItemOffer();
@@ -132,7 +132,7 @@ When somebody purchases your item, a unique short-URL (cleeng.it) is created. In
 
 Alternatively you can simply load the following div class `class="cleengShare"`. When an item is purchased it will display the above sharing options for Facebook, Twitter, Email and display the URL itself. You need to load the JS file: `cleengSocial.js`.
 
-	// NOTE: CODE TO BE UPDATED	
+	// NOTE: CODE TO BE UPDATED
 	<script type="text/javascript">
 
 	</script>
