@@ -115,7 +115,7 @@ Just fill in your itemOfferId (section 3.2) and run the file!
     CleengApi.countItemOfferImpression("<?php echo $itemOfferId ?>");
 
     function cleengPurchase() {
-        CleengClient.purchase("<?php echo $itemOfferId ?>", function(result) {
+        CleengApi.purchase("<?php echo $itemOfferId ?>", function(result) {
             if (result.purchased) {
             	// improve the user experience - learn how to load with AJAX in tutorial 2
                 window.location.reload();
