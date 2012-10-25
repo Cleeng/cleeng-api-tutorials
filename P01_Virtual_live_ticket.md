@@ -71,7 +71,7 @@ ALWAYS indicate your sales estimates to Cleeng. Please [contact](http://cleeng.c
 
 **Step7: Set-up an FAQ**
 
-To make it easy for you, we prepared a standard FAQ that you only need to customize. They are also in the example package under [faq.html](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/05_Virtual_live_ticket/faq.html)
+To make it easy for you, we prepared a standard FAQ that you only need to customize. They are also in the example package under [faq.html](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/P01_Virtual_live_ticket/faq.html)
 
 **Step8 Tests**
 
