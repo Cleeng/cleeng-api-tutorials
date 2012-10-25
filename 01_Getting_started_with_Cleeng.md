@@ -30,11 +30,11 @@ Then, get a [secure Cleeng API token](https://cleeng.com/dev/api-keys). Section 
 ##3. Protect your item. Setup your offer. Sell it.
 
 ### 3.1. Define & protect the item
-Define the part you want to protect. Use `$cleengAPI->isAccessGranted()` to validate if the visitor is authorized and if the item should be revealed. You can place any piece of HTML between the tags.
+Define the part you want to protect. Use `$cleengApi->isAccessGranted()` to validate if the visitor is authorized and if the item should be revealed. You can place any piece of HTML between the tags.
 
     ```php
 	... place the following within your HTML.
-	<?php if ($cleengAPI->isAccessGranted($itemOfferId)) {  ?>
+	<?php if ($cleengApi->isAccessGranted($itemOfferId)) {  ?>
         This content is accessible when you purchase it!
         Place here the stuff you want to sell.
     <?php } else {  ?>
@@ -54,17 +54,17 @@ Set-up your offer by defining the 3 mandatory parameters of the itemOffer. See t
 - `description` is a teaser shown just before your visitors decide to buy. It is limited to 110 characters.
 
     ```php
-     $cleengAPI = new CleengClient(array(
+     $cleengApi = new Cleeng_Api(array(
         'publisherToken' => 'YOUR_PUBLISHER_TOKEN'
      ));
 
-     $itemOfferId = $cleengAPI->createItemOffer(array(
+     $itemOffer = $cleengApi->createItemOffer(array(
         'price' => 0.49,
         'url' => 'http://your-site.com/view-item-here',
         'description' => 'Buy this item for just $0.49. You will love it!'
      ));
 
-     echo "You have set-up an offer on Cleeng servers with ID=$itemOfferId";
+     echo "You have set-up an offer on Cleeng servers with ID=" . $itemOffer->id;
      ```
 
 Run create_item_offer.php. Copy the itemOfferId that is returned from the Cleeng servers and use it in next section.
@@ -108,7 +108,7 @@ Just fill in your itemOfferId (section 3.2) and run the file!
 
     // include PHP SDK
     include_once('../cleeng-php-sdk/cleeng_api.php');
-    $cleengAPI = new CleengClient();
+    $cleengApi = new CleengClient();
     ?>
     <script type="text/javascript" src="http://cdn.cleeng.com/js-api/2.0/api.js"></script>
     <script type="text/javascript">
@@ -125,7 +125,7 @@ Just fill in your itemOfferId (section 3.2) and run the file!
     </script>
 
     ... place the following within your HTML.
-    <?php if ($cleengAPI->isAccessGranted($itemOfferId)) {  ?>
+    <?php if ($cleengApi->isAccessGranted($itemOfferId)) {  ?>
         This content is accessible when you purchase it!
         Place here the stuff you want to sell.
     <?php } else {  ?>
@@ -156,7 +156,7 @@ This tutorial explains in details the [Getting started example](http://cleeng.co
 
 * Register as publisher on [production](http://cleeng.com/publisher-registration) (or [sandbox](http://sandbox.cleeng.com/publisher-registration))
 * Grab your [API token](http://cleeng.com/dev/api-keys) (or from [sandbox](http://sandbox.cleeng.com/dev/api-keys)).
-* Define the item you want to protect and control access via `$cleengAPI->isAccessGranted();`
+* Define the item you want to protect and control access via `$cleengApi->isAccessGranted();`
 * Fill in the sales parameters in [create_offer_item.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng/create_item_offer.php) and open the file in your browser - this generates your item offer ID
 * Put your item offer ID in [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng/purchase.php)
 * Within your browser - Log out from Cleeng (as you can't purchase your own offer) and run [purchase.php](https://github.com/Cleeng/cleeng-open/blob/master/public/example/01/purchase.php) in your browser.
