@@ -1,32 +1,18 @@
 <?php
 /**
  * Cleeng API Example 2 - Creating offer
- *
- * Open this file in browser or run it from command line in order
- * to create rental offer
- *
  * learn more about all kinds of Cleeng offers in http://cleeng.com/open/Tutorials/02_Creating_Offers
  */
 
 /***
  * PUBLISHER TOKEN
- * if you have publisher account, get your token from http://cleeng.com/dev/api-keys
- * if not, learn how to open publisher account in http://cleeng.com/open/Tutorials/01_Starting_with_Cleeng_PHP_SDK
+ * get your token from http://cleeng.com/dev/api-keys
  */
 $publisherToken = 'YOUR_PUBLISHER_TOKEN';
 
 
 /**
- * DESCRIBE YOUR OFFER
- * In our example we're using rental offer. You can learn more about Cleeng offers in
- * http://cleeng.com/open/Tutorials/02_Creating_Offers
- *
- * createRentalOffer Reference you can easily find here
- * http://cleeng.com/open/Reference/Rental_Offer_API/Functions/createRentalOffer
- *
- * To set up an offer, you have to put required params:
- * title, period (in hours), price
- * To make your customer happier use more params
+ * Describe your offer, available parameters you can find in API Reference: http://cleeng.com/open/Reference/Rental_Offer_API/Functions/createRentalOffer
  */
 $offerSetup = array(
     'title' => 'Super Cool article for just $0.49. You will love it!',
@@ -50,7 +36,8 @@ $cleengApi = new Cleeng_Api(array(
     'endpoint' => 'https://cleeng.com/api/3.0/json-rpc',//to delete
     'publisherToken' => $publisherToken
 ));
-// create rental offer on Cleeng Platform
+// createRentalOffer Reference you can easily find here
+// http://cleeng.com/open/Reference/Rental_Offer_API/Functions/createRentalOffer
 $offer = $cleengApi->createRentalOffer($offerSetup);
 
 // print ID of new offer

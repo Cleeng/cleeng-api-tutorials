@@ -29,8 +29,6 @@ $cleengApi = new Cleeng_Api();
         CleengApi.trackOfferImpression("<?php echo $offerId ?>");
         function cleengPurchase() {
             CleengApi.purchase("<?php echo $offerId ?>", function (result) {
-                // reload page after purchase to reveal protected ite
-                // improve the user experience - learn how to load with AJAX in tutorial 2
                 window.location.reload();
             });
         }

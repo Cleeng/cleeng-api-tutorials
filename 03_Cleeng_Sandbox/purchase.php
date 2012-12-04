@@ -9,7 +9,7 @@
 
 
 // set the ID of the offer you want to sell
-$offerId = 'R803743332_PL'; //default offer for sandbox.cleeng.com
+$offerId = 'YOUR_OFFER_ID';
 
 
 // include PHP SDK
@@ -17,7 +17,7 @@ include_once('../cleeng-php-sdk/cleeng_api.php');
 
 $cleengApi = new Cleeng_Api();
 
-//only to testing
+//set endpoint to Sandbox
 $cleengApi->setEndpoint('https://sandbox.cleeng.com/api/3.0/json-rpc');
 
 ?>
@@ -28,8 +28,6 @@ $cleengApi->setEndpoint('https://sandbox.cleeng.com/api/3.0/json-rpc');
         CleengApi.trackOfferImpression("<?php echo $offerId ?>");
         function cleengPurchase() {
             CleengApi.purchase("<?php echo $offerId ?>", function (result) {
-                // reload page after purchase to reveal protected ite
-                // improve the user experience - learn how to load with AJAX in tutorial 2
                 window.location.reload();
             });
         }

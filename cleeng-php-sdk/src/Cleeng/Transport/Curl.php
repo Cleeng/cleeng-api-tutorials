@@ -1,103 +1,37 @@
 <?php
 
-class Cleeng_Transport_Curl extends Cleeng_AbstractTransport
+class Cleeng_Transport_Curl extends Cleeng_Transport_AbstractTransport
 {
-    /**
-     * Counter that keeps track of "id" property in JSON-RPC requests
-     *
-     * @var int
-     */
-    protected $rpcId = 1;
-
-    /**
-     * URL to Cleeng platform: cleeng.com or sandbox.cleeng.com
-     *
-     * @var string
-     */
-    protected $platformUrl = 'cleeng.com';
-
-    /**
-     *
-     * @var Cleeng_TransferObject[]
-     */
-    protected $callStack = array();
-
-    /**
-     * Response from last API call
-     *
-     * @var string
-     */
-    protected $apiResponse;
-
-    /**
-     * HTTP response code from last API call
-     *
-     * @var int
-     */
-    protected $apiResponseCode;
-
-    /**
-     * Last request sent to Cleeng servers
-     *
-     * @var string
-     */
-    protected $apiRequest;
 
     /**
      * CURL handle
      *
      * @var resource
      */
-    protected $curl;
+    private $curlHandle;
 
     /**
-     * @param $platformUrl
-     */
-    public function __construct($platformUrl)
-    {
-        $this->platformUrl = $platformUrl;
-    }
-
-    /**
+     * URL used in last request
      *
-     *
-     * @param $endpoint
-     * @param string $method
-     * @param array $params
-     * @return Cleeng_TransferObject
+     * @var string
      */
-    public function call($endpoint, $method, $params)
-    {
-        $json = array(
-            'jsonrpc' => '2.0',
-            'method' => $method,
-            'params' => $params,
-            'id' => $this->rpcId++
-        );
-        $transferObject = new Cleeng_TransferObject($this);
-        $transferObject->_endpoint = $endpoint;
-        $transferObject->_requestData = $json;
-        $this->callStack[] = $transferObject;
-        return $transferObject;
-    }
+    private $lastUrl;
 
     /**
-     * Performs actual request to Cleeng servers using curl
+     * Send data to API endpoint using CURL
      *
      * @param $url
-     * @param $postData
+     * @param $data
+     * @throws Cleeng_Exception_HttpErrorException
      * @return string
-     * @throws Exception
      */
-    protected function _curl($url, $postData)
+    public function call($url, $data)
     {
-        $this->apiRequest = $postData;
-
-        if (null == $this->curl) {
-            $this->curl = curl_init($url);
+        if (null == $this->curlHandle || $url != $this->lastUrl) {
+            $this->curlHandle = curl_init($url);
         }
 
-        $ch = $this->curl;
+        $ch = $this->curlHandle;
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
@@ -107,82 +41,23 @@ class Cleeng_Transport_Curl extends Cleeng_AbstractTransport
          */
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         $buffer = curl_exec($ch);
-        $this->apiResponse = $buffer;
-        $this->apiResponseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        if ($this->apiResponseCode !== 200) {
-            throw new Exception('Invalid HTTP response code (' . $this->apiResponseCode . ').');
+
+        $err = curl_errno($ch);
+        if ($err != 0) {
+            throw new Cleeng_Exception_HttpErrorException("cURL error ($err): " . curl_error($ch));
+        }
+
+        $apiResponseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if ($apiResponseCode !== 200) {
+            throw new Cleeng_Exception_HttpErrorException('Invalid HTTP response code (' . $apiResponseCode . ').');
+        }
+
+        if (!strlen($buffer)) {
+            throw new Cleeng_Exception_HttpErrorException('No data received.');
         }
 
         return $buffer;
     }
-
-    /**
-     * Packs pending API requests into JSON array and sends them to API endpoint.
-     *
-     * @throws Exception
-     */
-    public function commit()
-    {
-        $requestList = array();
-        $idLookup = array();
-        foreach ($this->callStack as $transferObject) {
-            $idLookup[$transferObject->_requestData['id']] = $transferObject;
-            $requestList[] = $transferObject->_requestData;
-        }
-
-        $url = 'https://api.' . $this->platformUrl . '/2.0/json-rpc';
-        $json = $this->_curl($url, json_encode($requestList));
-
-        if (!$json || !strlen($json) || !$result = json_decode($json)) {
-            throw new Exception('Server response is not valid JSON string.');
-        }
-
-        foreach ($result as $response) {
-            $transferObject = $idLookup[$response->id];
-            $transferObject->_pending = false;
-            if ($response->error) {
-                $transferObject->_error = $response->error;
-            } else {
-                $transferObject->_error = false;
-                $transferObject->setData($response->result);
-            }
-        }
-    }
-
-    /**
-     * Debug/test method.
-     * Returns last reposnse string received from Cleeng servers.
-     *
-     * @return string
-     */
-    public function getApiResponse()
-    {
-        return $this->apiResponse;
-    }
-
-    /**
-     * Debug/test method.
-     * Returns last HTTP response code received from Cleeng servers.
-     *
-     * @return int
-     */
-    public function getApiResponseCode()
-    {
-        return $this->apiResponseCode;
-    }
-
-    /**
-     * Debug/test method.
-     * Returns data sent to Cleeng servers with last request.
-     *
-     * @return string
-     */
-    public function getApiRequest()
-    {
-        return $this->apiRequest;
-    }
-
-
 }
