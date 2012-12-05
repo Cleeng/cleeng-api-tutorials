@@ -34,7 +34,7 @@ $cleengApi->setEndpoint('https://sandbox.cleeng.com/api/3.0/json-rpc');
     </script>
 </head>
 <body>
-<h1>Example 1: Getting started with Cleeng</h1>
+<h1>Example 3: Cleeng Sandbox</h1>
 <p>In case of any problems, please go back to <a href="http://cleeng.com/open/Tutorials/03_Cleeng_Sandbox">tutorial</a> on Cleeng Open.</p>
 
 <hr />

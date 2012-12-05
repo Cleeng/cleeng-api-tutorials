@@ -35,7 +35,7 @@ $cleengApi = new Cleeng_Api();
     </script>
 </head>
 <body>
-<h1>Example 1: Getting started with Cleeng</h1>
+<h1>Example 2: Creating offers</h1>
 <p>In case of any problems, please go back to <a href="http://cleeng.com/open/Tutorials/01_Protect_your_content">tutorial</a> on Cleeng Open.</p>
 
 <hr />
