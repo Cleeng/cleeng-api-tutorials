@@ -9,7 +9,7 @@
 
 
 // set the ID of the offer you want to sell
-$offerId = 'YOUR_OFFER_ID';
+$offerId = 'YOUR_OFFER_ID'; // R733029903_US - default offerID for sandbox
 
 
 // include PHP SDK

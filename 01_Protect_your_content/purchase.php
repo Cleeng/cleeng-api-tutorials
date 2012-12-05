@@ -13,7 +13,7 @@
 
 
 // set the ID of the offer you want to sell
-$offerId = 'R803743332_PL'; //default offer for cleeng.com
+$offerId = 'R435427708_US'; //default offer for cleeng.com
 
 
 // include PHP SDK
