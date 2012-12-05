@@ -7,7 +7,7 @@
  * your-site.com/01_Getting_started_with_Cleeng/purchase.php
  * =====================================================================
  * Remember, if you want to test payment process, you have to work on sandbox.
- * Check how to work with sandbox in Tutorial 3 : http://cleeng.com/open/Tutorials/03_Sandbox_testing
+ * Check how to work with sandbox in Tutorial 3 : http://cleeng.com/open/Tutorials/03_Cleeng_Sandbox
  * =====================================================================
  */
 
