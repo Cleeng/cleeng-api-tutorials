@@ -148,39 +148,3 @@ The last important thing you should know is how to create offers,
 
 
 During testing, as you probably can see, you can't complete you purchase unless you pay with real money. In Tutorial [How to use Cleeng sandbox](Tutorials/05_Sandbox_testing), you can read how to use Sandbox to test payment and be able to finish the purchase process.
-
-<!--
-##6. Summary
-
-This tutorial explains in detail the [Protect your content example](/example/01/purchase.php). Grab the [examples files, including the PHP SDK](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
-
-* Register as a publisher on [Cleeng](http://cleeng.com/publisher-registration)
-* Grab your [API token](http://cleeng.com/dev/api-keys).
-* Put default offer ID in [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Protect_your_content/purchase.php)
-* Within your browser - Log out from Cleeng (as you can't purchase your own offer) and run [purchase.php](https://github.com/Cleeng/cleeng-open/blob/master/public/example/01/purchase.php) in your browser.
-* Enjoy the simple purchase process!
-
-**Anything unclear or wrong?**
-
-Let us know on [Github](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Protect_your_content.md) and indicate any suggestions or changes! Highly appreciated.
-
--->
-
----
-
-##Any thoughts or suggestions? Share with us!
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_title = 'Cleeng Open';
-    var disqus_identifier = 'Protect your content';
-    var disqus_shortname = 'cleengopen';
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
