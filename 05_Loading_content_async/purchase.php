@@ -1,6 +1,6 @@
 <?php
 /**
- * Cleeng API Example 2 - Loading content asynchronously
+ * Cleeng API Example 5 - Loading content asynchronously
  *
  * This file should be opened in browser.
  */
@@ -11,13 +11,13 @@ include 'config.php';
 ?>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://cdn.cleeng.com/js-api/3.0/api.js"></script>
+<script type="text/javascript" src="http://sandbox.cleeng.com/js-api/3.0/api.js"></script>
 <script type="text/javascript">
 $('document').ready(function() {
     CleengApi.trackOfferImpression("<?php echo $offerId ?>");
     $('#purchase').click(function() {
         CleengApi.purchase("<?php echo $offerId ?>", function(result) {
-           $.post('ajax.php', function(text) {
+            $.post('ajax.php', function(text) {
                if (text) {
                    $('#protected_content').html(text).show();
                    $('#prompt').hide();

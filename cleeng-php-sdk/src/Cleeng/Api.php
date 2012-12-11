@@ -863,7 +863,7 @@ class Cleeng_Api
      * Event Offer API: createEventOffer
      *
      * @param array $offerData
-     * @return Cleeng_Entity_SingleOffer
+     * @return Cleeng_Entity_EventOffer
      * @throws Cleeng_Exception_RuntimeException
      */
     public function createEventOffer($offerData)
@@ -878,7 +878,7 @@ class Cleeng_Api
                 'publisherToken' => $publisherToken,
                 'offerData' => $offerData
             ),
-            new Cleeng_Entity_EventOffer()
+            new Cleeng_Entity_Base()
         );
     }
 

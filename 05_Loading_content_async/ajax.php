@@ -9,11 +9,9 @@
 // include configuration file
 include 'config.php';
 
-echo $cleengApi->getCustomerToken();
 // Check if visitor has access to protected content
 if ($cleengApi->isAccessGranted($offerId)) {
-
     // usually this will be loaded from database - in order to make this example
     // simpler, we'll just echo variable from configuration file
-    echo $contentToProtect;
+    echo 'Your content without page reloading: '.$contentToProtect;
 }
