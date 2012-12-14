@@ -33,10 +33,8 @@ $offerSetup = array(
 include_once('../cleeng-php-sdk/cleeng_api.php');
 
 // create Cleeng API object
-$cleengApi = new Cleeng_Api(array(
-    'endpoint' => 'https://cleeng.com/api/3.0/json-rpc',//to delete
-    'publisherToken' => $publisherToken
-));
+$cleengApi = new Cleeng_Api();
+$cleengApi->setPublisherToken($publisherToken);
 // createRentalOffer Reference you can easily find here
 // http://cleeng.com/open/Reference/Rental_Offer_API/Functions/createRentalOffer
 $offer = $cleengApi->createRentalOffer($offerSetup);

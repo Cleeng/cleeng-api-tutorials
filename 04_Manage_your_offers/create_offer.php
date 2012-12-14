@@ -33,10 +33,9 @@ $offerSetup = array(
 include_once('../cleeng-php-sdk/cleeng_api.php');
 
 // create Cleeng API object
-$cleengApi = new Cleeng_Api(array(
-    'endpoint' => 'https://sandbox.cleeng.com/api/3.0/json-rpc',
-    'publisherToken' => $publisherToken
-));
+$cleengApi = new Cleeng_Api();
+$cleengApi->enableSandbox();
+$cleengApi->setPublisherToken($publisherToken);
 // create rental offer on Cleeng Platform
 $offer = $cleengApi->createRentalOffer($offerSetup);
 

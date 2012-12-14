@@ -17,13 +17,13 @@ include_once('../cleeng-php-sdk/cleeng_api.php');
 
 $cleengApi = new Cleeng_Api();
 
-//set endpoint to Sandbox
-$cleengApi->setEndpoint('https://sandbox.cleeng.com/api/3.0/json-rpc');
+//switch to Sandbox
+$cleengApi->enableSandbox();
 
 ?>
 <html>
 <head>
-    <script type="text/javascript" src="http://sandbox.cleeng.com/js-api/3.0/api.js"></script>
+    <script type="text/javascript" src="<?php echo $cleengApi->getJsApiUrl() ?>"></script>
     <script type="text/javascript">
         CleengApi.trackOfferImpression("<?php echo $offerId ?>");
         function cleengPurchase() {

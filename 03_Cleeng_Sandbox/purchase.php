@@ -9,7 +9,7 @@
 
 
 // set the ID of the offer you want to sell
-$offerId = 'YOUR_OFFER_ID'; // R733029903_US - default offerID for sandbox
+$offerId = 'R733029903_US'; // R733029903_US - default offerID for sandbox
 
 
 // include PHP SDK
@@ -18,12 +18,12 @@ include_once('../cleeng-php-sdk/cleeng_api.php');
 $cleengApi = new Cleeng_Api();
 
 //set endpoint to Sandbox
-$cleengApi->setEndpoint('https://sandbox.cleeng.com/api/3.0/json-rpc');
+$cleengApi->enableSandbox();
 
 ?>
 <html>
 <head>
-    <script type="text/javascript" src="http://sandbox.cleeng.com/js-api/3.0/api.js"></script>
+    <script type="text/javascript" src="<?php echo $cleengApi->getJsApiUrl() ?>"></script>
     <script type="text/javascript">
         CleengApi.trackOfferImpression("<?php echo $offerId ?>");
         function cleengPurchase() {

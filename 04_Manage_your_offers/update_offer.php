@@ -20,10 +20,9 @@ $offerSetup = array(
 
 include_once('../cleeng-php-sdk/cleeng_api.php');
 
-$cleengApi = new Cleeng_Api(array(
-    'endpoint' => 'https://sandbox.cleeng.com/api/3.0/json-rpc',
-    'publisherToken' => $publisherToken
-));
+$cleengApi = new Cleeng_Api();
+$cleengApi->enableSandbox();
+$cleengApi->setPublisherToken($publisherToken);
 
 try {
 

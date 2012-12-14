@@ -1,5 +1,19 @@
 <?php
+/**
+ * Cleeng PHP SDK (http://cleeng.com)
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
+ * file that was distributed with this source code.
+ *
+ * @link    https://github.com/Cleeng/cleeng-php-sdk for the canonical source repository
+ * @package Cleeng_PHP_SDK
+ */
 
+/**
+ * Main class that should be used to access Cleeng API
+ *
+ * @link http://cleeng.com/open/PHP_SDK
+ */
 class Cleeng_Api
 {
 
@@ -9,11 +23,21 @@ class Cleeng_Api
     const SANDBOX_ENDPOINT  = 'https://sandbox.cleeng.com/api/3.0/json-rpc';
 
     /**
-     * API endpoint
+     * Cleeng Javascript library for Cleeng Sandbox
+     */
+    const SANDBOX_JSAPI_URL  = 'http://sandbox.cleeng.com/js-api/3.0/api.js';
+
+    /**
+     * API endpoint - by default points to live platform
      *
      * @var string
      */
     protected $endpoint = 'https://api.cleeng.com/3.0/json-rpc';
+
+    /**
+     * Cleeng Javascript library URL
+     */
+    protected $jsApiUrl = 'http://cdn.cleeng.com/js-api/3.0/api.js';
 
     /**
      * Transport class used to communicate with Cleeng servers
@@ -92,10 +116,10 @@ class Cleeng_Api
      *
      * @param string $method
      * @param array $params
-     * @param Cleeng_Entity_Base $objectToPopuplate
+     * @param Cleeng_Entity_Base $objectToPopulate
      * @return Cleeng_Entity_Base
      */
-    public function api($method, $params = array(), $objectToPopuplate = null)
+    public function api($method, $params = array(), $objectToPopulate = null)
     {
         $id = count($this->pendingCalls)+1;
         $payload = json_encode(
@@ -107,12 +131,12 @@ class Cleeng_Api
             )
         );
 
-        if (null === $objectToPopuplate) {
-            $objectToPopuplate = new Cleeng_Entity_Base();
+        if (null === $objectToPopulate) {
+            $objectToPopulate = new Cleeng_Entity_Base();
         }
 
         $this->pendingCalls[$id] = array(
-            'entity' => $objectToPopuplate,
+            'entity' => $objectToPopulate,
             'payload' => $payload
         );
 
@@ -121,7 +145,7 @@ class Cleeng_Api
             $this->commit();
         }
 
-        return $objectToPopuplate;
+        return $objectToPopulate;
     }
 
     /**
@@ -134,11 +158,13 @@ class Cleeng_Api
             $payload = $req['payload'];
             $requestData[] = $payload;
         }
+
         $encodedRequest = '[' . implode(',', $requestData) . ']';
         $this->rawRequest = $encodedRequest;
         $raw = $this->getTransport()->call($this->getEndpoint(), $encodedRequest);
         $this->rawResponse = $raw;
         $decodedResponse = json_decode($raw, true);
+
         if (!is_array($decodedResponse)) {
             throw new Cleeng_Exception_InvalidJsonException("Expected valid JSON string, received: $raw");
         }
@@ -191,12 +217,24 @@ class Cleeng_Api
         return $this->endpoint;
     }
 
+    public function setJsApiUrl($jsApiUrl)
+    {
+        $this->jsApiUrl = $jsApiUrl;
+        return $this;
+    }
+
+    public function getJsApiUrl()
+    {
+        return $this->jsApiUrl;
+    }
+
     /**
      * Helper function for setting up test environment
      */
     public function enableSandbox()
     {
         $this->setEndpoint(self::SANDBOX_ENDPOINT);
+        $this->setJsApiUrl(self::SANDBOX_JSAPI_URL);
     }
 
     /**
@@ -334,6 +372,23 @@ class Cleeng_Api
     {
         $userInfo = new Cleeng_Entity_Customer();
         return $this->api('getCustomer', array('customerToken' => $this->getCustomerToken()), $userInfo);
+    }
+
+    /**
+     * Customer API: trackOfferImpression
+     *
+     * @param $offerId
+     * @param string $ipAddress
+     * @return Cleeng_Entity_OperationStatus
+     */
+    public function trackOfferImpression($offerId, $ipAddress = '')
+    {
+        $status = new Cleeng_Entity_OperationStatus();
+        if ($token = $this->getCustomerToken()) {
+            return $this->api('trackOfferImpression', array('offerId' => $offerId, 'customerToken' => $token, 'ipAddress' => $ipAddress), $status);
+        } else {
+            return $this->api('trackOfferImpression', array('offerId' => $offerId, 'ipAddress' => $ipAddress), $status);
+        }
     }
 
     /**
@@ -863,7 +918,7 @@ class Cleeng_Api
      * Event Offer API: createEventOffer
      *
      * @param array $offerData
-     * @return Cleeng_Entity_EventOffer
+     * @return Cleeng_Entity_SingleOffer
      * @throws Cleeng_Exception_RuntimeException
      */
     public function createEventOffer($offerData)
@@ -878,7 +933,7 @@ class Cleeng_Api
                 'publisherToken' => $publisherToken,
                 'offerData' => $offerData
             ),
-            new Cleeng_Entity_Base()
+            new Cleeng_Entity_EventOffer()
         );
     }
 
