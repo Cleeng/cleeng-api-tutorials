@@ -36,13 +36,19 @@ include_once('../cleeng-php-sdk/cleeng_api.php');
 $cleengApi = new Cleeng_Api();
 $cleengApi->enableSandbox();
 $cleengApi->setPublisherToken($publisherToken);
+
+try {
 // create rental offer on Cleeng Platform
 $offer = $cleengApi->createRentalOffer($offerSetup);
 
 // print ID of new offer
 echo 'Created rental offer with id = ' . $offer->id . "\n";
 
-//you can always get and 
+//you can always get and
+}
+catch(Exception $e) {
+    echo $e->getMessage();
+}
 ?>
 <hr />
 <p>&copy; Safe & secure content protection and monetization by <a href="http://cleeng.com" title="Cleeng Content Monetization" target="_blank"><img src="http://cdn.cleeng.com/images/layout/cleeng_logo_small.png" alt="Cleeng Content Monetization" title="Cleeng Content Monetization" /></a>.</p>

@@ -15,7 +15,7 @@
 // IMPORTANT: Once you have created an offer, don't leave this file on the server!
 
 // get your token from http://cleeng.com/us/dev/api-keys
-$publisherToken = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$publisherToken = 'Il80hAEe7gQjhN_nKr_vRwFrXvgnVOaNdfs9vDQ1nz8cCLzb';
 
 // define offer properties (for more details see reference of createRentalOffer())
 // 
@@ -25,7 +25,7 @@ $offerSetup = array(
     'url' => 'http://your-site.com/watch/bipbip_12/',
     'description' => 'See how Bip Bip and Coyote are chasing each other. Watch it live from MSG New York directly from your browser.',
     'startTime' => '1353453600',
-    'endTime' => '1353470400',
+    'endTime' => '1420048461',
     'videoOnDemand' => 'restricted',
     'videoOnDemandRentalPeriod' => 48
 );
@@ -39,6 +39,7 @@ include_once('../cleeng-php-sdk/cleeng_api.php');
 
 // create Cleeng API object
 $cleengApi = new Cleeng_Api();
+$cleengApi->enableSandbox();
 $cleengApi->setPublisherToken($publisherToken);
 
 // create offer on Cleeng Platform

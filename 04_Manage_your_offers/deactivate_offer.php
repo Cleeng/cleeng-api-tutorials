@@ -7,7 +7,7 @@
  * PUBLISHER TOKEN
  * get your token from http://sandbox.cleeng.com/dev/api-keys
  */
-$publisherToken = 'TeurE3xRXcFtF7gSbhYCXx_qC1IrvnDWGejDv114-OE0cdZ9';
+$publisherToken = 'YOUR_PUBLISHER_TOKEN';
 
 
 $offerId = R495315693_PL;

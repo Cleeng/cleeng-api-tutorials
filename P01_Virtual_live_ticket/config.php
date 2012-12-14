@@ -9,7 +9,7 @@
 
 // Create your offer ID with create_offer.php (See Tutorial 2 on Cleeng.com/open) or use ID R435427708_US for demo purposes.
 // Note: the demo offer (R733029903_US) if created using Cleeng Sandbox (Tutorial 3). Thanks to that you are able to test payment process with fake credit cart data
-$offerId = 'R733029903_US';
+$offerId = 'E443383222_US';
  
 // $contentToProtect contains the html-content that you are selling. Default it is protected and only appears after the user has purchased.
  $contentToProtect = '<img src="img/wait-screen.jpg" alt="Pre-booking successfull" width="750" />';

@@ -28,7 +28,7 @@ include 'config.php';
     <link rel="stylesheet" href="css/global.css" media="screen" type="text/css" />
     <title>Example 1 - Sell virtual tickets using Cleeng</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://sandbox.cleeng.com/js-api/3.0/api.js"></script>
+    <script type="text/javascript" src="<?php echo $cleengApi->getJsApiUrl() ?>"></script>
     <script type="text/javascript">
     <!-- loads protected content instantly with AJAX after payment is confirmed -->
     function reveal() {
