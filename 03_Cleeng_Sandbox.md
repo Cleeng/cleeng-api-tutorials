@@ -24,7 +24,8 @@ Note: when you switch between servers, think about deleting the cookies in your 
 
 ###2.1 Creating new offer via Sandbox
 
-As you can see, everything we are doing here is exactly the same but in a different environment. Let's have a look at [create_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Cleeng_Offers/create_offer.php)
+As you can see, everything we are doing here is exactly the same but in a different environment. Let's have a look at
+[**create_offer.php**](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/03_Cleeng_Sandbox/create_offer.php)
 
 To create offers on Sandbox, you have to:
 
@@ -44,18 +45,18 @@ To create offers on Sandbox, you have to:
 
     To set new endpoint, after you create a new API object, you just have to add 
 
-    `$cleengApi->setEndpoint('https://sandbox.cleeng.com/api/3.0/json-rpc');`
+    `$cleengApi->enableSandbox();`
 
+    Like this:
     &nbsp;
 
         ```php
-        $cleengApi = new Cleeng_Api(array(
-            'publisherToken' => $publisherToken
-        ));
-        $cleengApi->setEndpoint('https://sandbox.cleeng.com/api/3.0/json-rpc');
+        $cleengApi = new Cleeng_Api();
+        $cleengApi->setPublisherToken($publisherToken);
+        $cleengApi->enableSandbox();
         ```
 
-    That's it! Now, you can create offers on Cleeng Sandbox platform
+    That's it! Now, you can create offers on Cleeng Sandbox platform.
 
 
 ###2.2 Protecting offer on Sandbox
@@ -63,23 +64,14 @@ To create offers on Sandbox, you have to:
 Changes you have to make in [purchase.php](example/03/purchase.php):
 
 1. Set `offerId` that you created using Sandbox.
-2. Add `$cleengApi->setEndpoint('https://sandbox.cleeng.com/api/3.0/json-rpc');`
+2. Add `$cleengApi->enableSandbox();`
 
     &nbsp;
 
         ```php
         $cleengApi = new Cleeng_Api();
-        $cleengApi->setEndpoint('https://sandbox.cleeng.com/api/3.0/json-rpc');
+        $cleengApi->enableSandbox();
         ```
-
-3. Change the JavaScript endpoint from:
-
-    `<script type="text/javascript" src="http://cdn.cleeng.com/js-api/3.0/api.js"></script>`
-
-    to:
-
-    `<script type="text/javascript" src="http://sandbox.cleeng.com/js-api/3.0/api.js"></script>`
-
 That's it!
 
 ##3. So, what has changed?
@@ -95,3 +87,20 @@ Payment data:
 
 **Done, you are able to test the whole process of protecting and selling with Cleeng.**
 
+
+---
+
+##Any thoughts or suggestions? Share with us!
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_title = 'Cleeng Open';
+    var disqus_identifier = 'Cleeng Sandbox';
+    var disqus_shortname = 'cleengopen';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

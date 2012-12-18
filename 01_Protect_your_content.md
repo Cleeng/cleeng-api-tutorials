@@ -1,13 +1,47 @@
 Tutorial 1 - Protect your content with PHP SDK
 ==============================================
 
+<div class="tutorial-helper">
+    <table style="width: 350px;">
+        <tr>
+            <td><h4>Example of your website:</h4></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><img src="images/headerpur.png"></td>
+            <td class="desc"><strong>What is unique in Cleeng?</strong> You can prepare and encourage customer, by showing him interesting part of content.</td>
+        </tr>
+        <tr>
+            <td class="purchase"><img style="float: right;" src="images/beforepur.png"></td>
+            <td class="desc">
+                Choose witch part will be protected by Cleeng. Customer can purchase and get instant access to the rest of your content <button class="btn" type="button"><i class="icon-chevron-left"></i> Purchase</button><br/><br/>
+                <span>Awesome! Now you have access to the rest of article! :)</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<br>
+
 This basic tutorial shows you how to protect an offer on your website. You will learn the basics of the Cleeng API. All in just 5 minutes. This tutorial is for websites that can execute [PHP](http://php.net).
 
-After this tutorial you can sell anything digital: a few lines of code, a video embed (with domain restrictions), access to a form, or ... be creative!
+<br>
 
+On the right, you can see little example, how content protection works. What is great about our solution, is that you can hide only a part of your content. E.g. Your article is
+about
+ creating robots, your are describing how they work, what are the parameters, but only thing you are hiding is tutorial how to make one on your own.
+
+<br>
+
+After this tutorial you can sell anything digital: a few lines of code, a video embed (with domain restrictions), access to a form,
+how to build robots tutorial or ... be creative!
+
+<br>
 
 1. What is Cleeng PHP SDK for ?
+
 2. Get prepared & protect your content.
+
 3. Testing payment
 
 
@@ -15,7 +49,8 @@ After this tutorial you can sell anything digital: a few lines of code, a video 
 
 ##1. What is Cleeng PHP SDK ?
 
-Cleeng SDK for PHP developers provides a rich set of server-side functionality for accessing Cleeng server-side API calls. Using it you can easily integrate your website with out platform.
+Cleeng SDK for PHP developers provides a rich set of server-side functionality for accessing Cleeng server-side API calls. Using it you can easily integrate your website with out platform. For more information go to [PHP SDK](/PHP_SDK) section.
+
 
 ##2. Protect your content.
 
@@ -48,20 +83,19 @@ Open file purchase.php from [github](https://github.com/Cleeng/cleeng-api-tutori
     ```php
     <?php
 
-    $offerId = 'R123123123_FR'; // Default offer Id - for tests
+    $offerId = 'R435427708_US'; // Default offer Id - for tests
 
     // include PHP SDK
     include_once('../cleeng-php-sdk/cleeng_api.php');
     $cleengApi = new Cleeng_Api();
     ?>
-    <script type="text/javascript" src="http://cdn.cleeng.com/js-api/3.0/api.js"></script>
+    <script type="text/javascript" src="<?php echo $cleengApi->getJsApiUrl() ?>"></script>
     <script type="text/javascript">
-    CleengApi.countItemOfferImpression("<?php echo $offerId ?>");
+    CleengApi.trackOfferImpression("<?php echo $offerId ?>");
 
     function cleengPurchase() {
         CleengApi.purchase("<?php echo $offerId ?>", function(result) {
             if (result.purchased) {
-            	// improve the user experience - learn how to load with AJAX in tutorial 6
                 window.location.reload();
             }
         });
@@ -91,7 +125,7 @@ Open file purchase.php from [github](https://github.com/Cleeng/cleeng-api-tutori
 
 * Offer Id
 
-    `$offerId = 'R123123123_FR'` - this is Cleeng default offer Id, which you can use to test the code. In [Tutorial 2 - Creating Offers](Tutorials/02_Creating_Offers), you can read
+    `$offerId = 'R435427708_US'` - this is Cleeng default offer Id, which you can use to test the code. In [Tutorial 2 - Creating Offers](Tutorials/02_Creating_Offers), you can read
 how to create an offer and get Id from it.
 
 
@@ -115,13 +149,11 @@ If the user is not logged in or hasn't purchased our content, `<a href="javascri
 In the `<head>...</head>` of your HTML page put this code:
 
     ```php
-    <script type="text/javascript" src="http://cleeng.com/js-api/3.0/api.js"></script>
+    <script type="text/javascript" src="<?php echo $cleengApi->getJsApiUrl() ?>"></script>
     <script type="text/javascript">
         CleengApi.trackOfferImpression("<?php echo $offerId ?>");
         function cleengPurchase() {
             CleengApi.purchase("<?php echo $offerId ?>", function (result) {
-                // reload page after purchase to reveal protected ite
-                // improve the user experience - learn how to load with AJAX in tutorial 2
                 window.location.reload();
             });
         }
@@ -130,7 +162,7 @@ In the `<head>...</head>` of your HTML page put this code:
 
 As you can see, we've just included `api.js` file. From now on we can use:
 
-*   `CleengApi.countItemOfferImpression()` which is necessary to make statistics, count impression.
+*   `CleengApi.trackOfferImpression()` which is necessary to make statistics, count impression.
 
 *   `CleengApi.purchase()` using that method, we create `cleengPurchase()` method
 
@@ -148,3 +180,39 @@ The last important thing you should know is how to create offers,
 
 
 During testing, as you probably can see, you can't complete you purchase unless you pay with real money. In Tutorial [How to use Cleeng sandbox](Tutorials/05_Sandbox_testing), you can read how to use Sandbox to test payment and be able to finish the purchase process.
+
+<!--
+##6. Summary
+
+This tutorial explains in detail the [Protect your content example](/example/01/purchase.php). Grab the [examples files, including the PHP SDK](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
+
+* Register as a publisher on [Cleeng](http://cleeng.com/publisher-registration)
+* Grab your [API token](http://cleeng.com/dev/api-keys).
+* Put default offer ID in [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Protect_your_content/purchase.php)
+* Within your browser - Log out from Cleeng (as you can't purchase your own offer) and run [purchase.php](https://github.com/Cleeng/cleeng-open/blob/master/public/example/01/purchase.php) in your browser.
+* Enjoy the simple purchase process!
+
+**Anything unclear or wrong?**
+
+Let us know on [Github](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Protect_your_content.md) and indicate any suggestions or changes! Highly appreciated.
+
+-->
+
+---
+
+##Any thoughts or suggestions? Share with us!
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_title = 'Cleeng Open';
+    var disqus_identifier = 'Protect your content';
+    var disqus_shortname = 'cleengopen';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
