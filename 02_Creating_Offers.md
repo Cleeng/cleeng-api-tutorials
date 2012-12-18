@@ -1,7 +1,7 @@
 Tutorial 2 - Creating Offers
 ============================
 
-In previous tutorial [Protect your content](http://cleeng.com/open/Tutorials/01_Protect_your_content), you learned how to implement PHP SDK and how protect your content. In this tutorial, you will take the last basic step to sell your content.
+In previous tutorial [Protect your content](/Tutorials/01_Protect_your_content), you learned how to implement PHP SDK and how protect your content. In this tutorial, you will take the last basic step to sell your content.
 
 If you want to sell anything with Cleeng, you have to describe it, give it a name, price etc. You have to create an offer.
 
@@ -12,9 +12,7 @@ If you want to sell anything with Cleeng, you have to describe it, give it a nam
 1. What is Cleeng offer ?
 2. Get Offer Id
 3. Combine everything
-4. Full example
 5. Testing payment
-6. Summary
 
 
 ---
@@ -51,7 +49,7 @@ Below, you can read about all types of Cleeng offers:
             <td>Live Event</td>
             <td>1 time payment</td>
             <td>Publisher set when it starts and ends</td>
-            <td></td>
+            <td>In Live Event offers, you can set when exactly offer is able to access. Also there is possibility to send reminder to user who purchased the offer earlier. Choose what you want to do with the stream after the event.</td>
         </tr>
         <tr>
             <td>Single</td>
@@ -88,7 +86,7 @@ Then, get a [publisher token](https://cleeng.com/dev/api-keys). Section 2.2.1 be
 
 In the first tutorial, we described how you can protect your content. As you probably remember, we've been working on default offer. Right now, we are going to create our own offer. 
 
-Please open `create_offer.php`. This file will use Cleeng API to create new rental offer, then it will print `offerId` on your screen. This `offerId` you can use later in `purchase.php` as we did with default offer id in [Tutorial 1](http://cleeng.com/open/Tutorials/01_Starting_with_Cleeng_PHP_SDK).
+Please open `create_offer.php`. This file will use Cleeng API to create new rental offer, then it will print `offerId` on your screen. This `offerId` you can use later in `purchase.php` as we did with default offer id in [Tutorial 1](/Tutorials/01_Starting_with_Cleeng_PHP_SDK).
 
 <div class="accordion" id="accordion2">
     <div class="accordion-heading">
@@ -114,18 +112,15 @@ Please open `create_offer.php`. This file will use Cleeng API to create new rent
         // include PHP SDK
         include_once('../cleeng-php-sdk/cleeng_api.php');
         
-        // create Cleeng API object
-        $cleengApi = new Cleeng_Api(array(
-            'endpoint' =&gt; 'https://cleeng.com/api/3.0/json-rpc',//to delete
-            'publisherToken' =&gt; $publisherToken
-        ));
+        // create Cleeng API object and set publisher token
+        $cleengApi = new Cleeng_Api();
+        $cleengApi->setPublisherToken($publisherToken);
         // create rental offer on Cleeng Platform
         $offer = $cleengApi-&gt;createRentalOffer($offerSetup);
         
         // print ID of new offer
         echo 'Created rental offer with id = ' . $offer-&gt;id . "\n";
-        
-        //you can always get and 
+
         ?&gt;
         </code></pre>
 
@@ -141,7 +136,7 @@ Please open `create_offer.php`. This file will use Cleeng API to create new rent
         <pre><code class="php">
         &lt;?php
 
-        $offerId = 'PUT_YOUR_OFFER_ID_HERE'; // Default offer Id - for tests
+        $offerId = 'PUT_YOUR_OFFER_ID_HERE';
 
         // include PHP SDK
         include_once('../cleeng-php-sdk/cleeng_api.php');
@@ -150,14 +145,13 @@ Please open `create_offer.php`. This file will use Cleeng API to create new rent
 
         ?&gt;
 
-        &lt;script type="text/javascript" src="http://cdn.cleeng.com/js-api/3.0/api.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript"&gt;
-        CleengApi.countItemOfferImpression("&lt;?php echo $offerId ?&gt;");
+        &lt;script type="text/javascript" src="&lt;?php echo $cleengApi->getJsApiUrl() ?&gt;"&gt;
+        CleengApi.trackOfferImpression("&lt;?php echo $offerId ?&gt;");
 
         function cleengPurchase() {
             CleengApi.purchase("&lt;?php echo $offerId ?&gt;", function(result) {
                 if (result.purchased) {
-                    // improve the user experience - learn how to load with AJAX in tutorial 6
+                    // improve the user experience - learn how to load with AJAX in tutorial 5
                     window.location.reload();
                 }
             });
@@ -183,7 +177,7 @@ e.g. `$publisherToken = 'Xlrx-SjTLVMCsaRsOf2q2hvWKOlrF57yHknDRRRMX-13Fz-x';`
 
 ####2.2.2 Describe your offer
 
-All information about parameters you can find in <a href="/v3/Reference">API Reference</a>
+All information about parameters you can find in <a href="v3/Reference">API Reference</a>
 <pre>
 <code>
 $offerSetup = array(
@@ -203,9 +197,8 @@ $offerSetup = array(
 include_once('./../cleeng-php-sdk/cleeng_api.php');
 
 // create Cleeng API object using your publisher token
-$cleengApi = new Cleeng_Api(array(
-    'publisherToken' => $publisherToken
-));
+$cleengApi = new Cleeng_Api();
+$cleengApi->setPublisherToken($publisherToken);
 
 // create rental offer on Cleeng Platform, using your offer description
 $offer = $cleengApi->createRentalOffer($offerSetup);
@@ -221,9 +214,9 @@ echo 'Created rental offer with id = ' . $offer->id . "\n";
 
 At this time in `purchase.php` you have to set offer ID, which you get from point 2.
 
-e.g. `$offerId = 'R896806857_PL';`
+e.g. `$offerId = 'R435427708_US';`
 
-Click to see a working demo: [Example 2 - Creating Offers](/example/02/purchase.php).
+<!--Click to see a working demo: [Example 2 - Creating Offers](/example/02/purchase.php).-->
 
 You are now ready to protect and sell digital content from your own website!
 
@@ -236,3 +229,40 @@ You are now ready to protect and sell digital content from your own website!
 During testing, as you probably can see, you can't complete you purchase unless you pay with real money. In Tutorial [How to use Cleeng sandbox](Tutorials/03_Cleeng_Sandbox), you can read how to use Sandbox to test payment and be able to finish the purchase process.
 
 <a class="btn btn-primary" href="./Tutorials/03_Cleeng_Sandbox">Go to Sandbox testing tutorial &raquo;</a>
+<!--
+##6. Summary
+
+This tutorial explains in detail the [Getting started example](example/01/purchase.php). Grab the [examples files, including the PHP SDK](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
+
+* Register as a publisher on [Cleeng](http://cleeng.com/publisher-registration)
+* Grab your [API token](http://cleeng.com/dev/api-keys).
+* Define the offer you want to protect and control access via `$cleengApi->isAccessGranted();`
+* Create you first offer in [create_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Creating_Offers/create_offer.php)
+* Put your offer ID in [purchase.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Getting_started_with_Cleeng/purchase.php)
+* Within your browser - Log out from Cleeng (as you can't purchase your own offer) and run [purchase.php](https://github.com/Cleeng/cleeng-open/blob/master/public/example/01/purchase.php) in your browser.
+* Enjoy the simple purchase process!
+
+**Anything unclear or wrong?**
+
+Let us know on [Github](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/01_Starting_with_Cleeng_PHP_SDK.md) and indicate any suggestions or changes! Highly appreciated.
+
+
+
+-->
+
+---
+
+##Any thoughts or suggestions? Share with us!
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_title = 'Cleeng Open';
+    var disqus_identifier = 'Creating Offers';
+    var disqus_shortname = 'cleengopen';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

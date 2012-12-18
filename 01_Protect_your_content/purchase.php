@@ -24,7 +24,7 @@ $cleengApi = new Cleeng_Api();
 ?>
 <html>
 <head>
-	<script type="text/javascript" src="http://cleeng.com/js-api/3.0/api.js"></script>
+	<script type="text/javascript" src="<?php echo $cleengApi->getJsApiUrl() ?>"></script>
 	<script type="text/javascript">
 	    CleengApi.trackOfferImpression("<?php echo $offerId ?>");
 	    function cleengPurchase() {
