@@ -15,7 +15,7 @@
 // IMPORTANT: Once you have created an offer, don't leave this file on the server!
 
 // get your token from http://cleeng.com/us/dev/api-keys
-$publisherToken = 'Il80hAEe7gQjhN_nKr_vRwFrXvgnVOaNdfs9vDQ1nz8cCLzb';
+$publisherToken = 'SET_YOUR_PUBLISHER_TOKEN';
 
 // define offer properties (for more details see reference of createRentalOffer())
 // 

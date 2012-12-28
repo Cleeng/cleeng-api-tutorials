@@ -590,6 +590,7 @@ class Cleeng_Api
         return $this->api(
             'listSingleOffers',
             array(
+                'publisherToken' => $this->getPublisherToken(),
                 'criteria' => $criteria,
                 'offset' => $offset,
                 'limit' => $limit,

@@ -38,6 +38,7 @@ class Cleeng_Entity_Base
         foreach ($data as $k => $v) {
             $this->$k = $v;
         }
+
         $this->pending = false;
     }
 
