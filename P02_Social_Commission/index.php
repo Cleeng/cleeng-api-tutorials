@@ -72,30 +72,17 @@ include 'config.php';
         </div>
         <div class="screen">
 <?
-// Check if visitor has access to protected content
-$access = $cleengApi->getAccessStatus($offerId);
-//       print_r($access);die;
 if ($access->accessGranted) {
 	echo '<div id="protected_content" class="video">';
 	echo $contentToProtect; //defined in config.php
-	echo '</div></div>
-        <div class="social-commission">
-        <span style="margin:5px 10px 0 10px">Url:</span>
-        <span class="socialurl">' . $access->socialCommissionUrl . '</span>
-        <span style="margin:5px 10px 0 20px;">Share with others and earn ' . $event->socialCommissionRate*100 . ' % commission.</span>
-        <span style="margin:5px 0 0 50px ">Share:</span>
-        <a class="thumbs tw" href="http://twitter.com/?status='.$event->description.' '.$access->socialCommissionUrl.'"></a>
-        <a class="thumbs fb" href="http://www.facebook.com/sharer.php?u='.$access->socialCommissionUrl.'&amp;t='.$event->description.'"></a>
-        <a class="thumbs ma"></a>
-    </div>';
 } else {
 // show wrapper, also display the empty div "protected content" to load via AJAX after purchase is made.
 	?>
 			<div id="protected_content" class="video"></div>
         	<div id="wrapper" class="wrapper">
-                <h3>Virtual ticket for [EVENT NAME]<br /></h3>
-                <p class="join-us">Join us at [EVENT NAME]... <br />....from the comfort of your own home!</p>
-                <p class="text-1">This virtual ticket lets you experience the sights and sounds of [EVENT NAME] through a live, high-definition Internet video stream.</p>
+                <h3>Virtual ticket for <?php echo $event->title; ?><br /></h3>
+                <p class="join-us">Join us at <?php echo $event->title; ?>... <br />....from the comfort of your own home!</p>
+                <p class="text-1">This virtual ticket lets you experience the sights and sounds of <?php echo $event->title; ?> through a live, high-definition Internet video stream.</p>
                 <p class="text-2">It provides full access to the event and can be watch from your home, mobile or iPad!</p>
                 <span class="price">$7.95</span>
                 <a href="#" id="buynow" class="purchase">Buy Now</a>
