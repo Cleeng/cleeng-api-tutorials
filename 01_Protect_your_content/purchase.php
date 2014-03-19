@@ -1,19 +1,19 @@
 <?php
 /**
  * Cleeng API Example 1 - How to protect your content
- * you can find tutorial 1 here: http://open.cleeng.com/Tutorials/01_Starting_with_Cleeng_PHP_SDK
+ * you can find tutorial 1 here: http://cleeng.com/open/Tutorials/01_Starting_with_Cleeng_PHP_SDK
  * =====================================================================
  * This file should be opened in browser, probably:
  * your-site.com/01_Getting_started_with_Cleeng/purchase.php
  * =====================================================================
  * Remember, if you want to test payment process, you have to work on sandbox.
- * Check how to work with sandbox in Tutorial 3 : http://cleeng.com/open/Tutorials/03_Cleeng_Sandbox
+ * Check how to work with sandbox in Tutorial 3 : http://cleeng.com/open/Tutorials/03_Sandbox_testing
  * =====================================================================
  */
 
 
 // set the ID of the offer you want to sell
-$offerId = 'R435427708_US'; //default offer for cleeng.com
+$offerId = 'R803743332_PL'; //default offer for cleeng.com
 
 
 // include PHP SDK
@@ -24,7 +24,7 @@ $cleengApi = new Cleeng_Api();
 ?>
 <html>
 <head>
-	<script type="text/javascript" src="<?php echo $cleengApi->getJsApiUrl() ?>"></script>
+	<script type="text/javascript" src="http://cleeng.com/js-api/3.0/api.js"></script>
 	<script type="text/javascript">
 	    CleengApi.trackOfferImpression("<?php echo $offerId ?>");
 	    function cleengPurchase() {

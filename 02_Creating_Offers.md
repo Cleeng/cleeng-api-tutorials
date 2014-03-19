@@ -1,7 +1,7 @@
 Tutorial 2 - Creating Offers
 ============================
 
-In previous tutorial [Protect your content](/Tutorials/01_Protect_your_content), you learned how to implement PHP SDK and how protect your content. In this tutorial, you will take the last basic step to sell your content.
+In previous tutorial [Protect your content](Tutorials/01_Protect_your_content), you learned how to implement PHP SDK and how protect your content. In this tutorial, you will take the last basic step to sell your content.
 
 If you want to sell anything with Cleeng, you have to describe it, give it a name, price etc. You have to create an offer.
 
@@ -19,7 +19,7 @@ If you want to sell anything with Cleeng, you have to describe it, give it a nam
 
 ##1. What is Cleeng offer?
 
-Every user before purchasing your content, has to know precisely what this is about. So if you want to sell with Cleeng, you have to describe it, give a name, set a price, choose type of an offer etc. More info about parameters connected with the offer that we allow to change you can find in [Offer API](/v3/Reference/Rental_Offer_API).
+Every user before purchasing your content, has to know precisely what this is about. So if you want to sell with Cleeng, you have to describe it, give a name, set a price, choose type of an offer etc. More info about parameters connected with the offer that we allow to change you can find in [Offer API](v3/Reference/Rental_Offer_API).
 
 Below, you can read about all types of Cleeng offers:
 
@@ -40,28 +40,29 @@ Below, you can read about all types of Cleeng offers:
     </thead>
     <tbody>
         <tr>
-            <td>Rental</td>
-            <td>1 time payment</td>
-            <td>1h, 3h, 12h, publisher defines in hours</td>
-            <td>Rental offers have specific period when user has access to content.<br/>Example: "Rent this video now for 48h"</td>
-        </tr>
-        <tr>
-            <td>Live Event</td>
-            <td>1 time payment</td>
-            <td>Publisher set when it starts and ends</td>
-            <td>In Live Event offers, you can set when exactly offer is able to access. Also there is possibility to send reminder to user who purchased the offer earlier. Choose what you want to do with the stream after the event.</td>
-        </tr>
-        <tr>
-            <td>Single</td>
+            <td><a href="v3/Reference/Single_Offer_API">Single</a></td>
             <td>1 time payment</td>
             <td>Anytime</td>
             <td>After purchasing, user has access to content anytime and anywhere.</td>
         </tr>
         <tr>
-            <td>Subscription</td>
+            <td><a href="v3/Reference/Rental_Offer_API">Rental</td>
+            <td>1 time payment</td>
+            <td>1h, 3h, 12h, publisher defines in hours</td>
+            <td>Rental offers have specific period when user has access to content.<br/>Example: "Rent this video now for 48h"</td>
+        </tr>
+        <tr>
+            <td><a href="v3/Reference/Subscription_Offer_API">Subscription</td>
             <td>multiple payments</td>
-            <td>day, week, month, quarter, year, it is a publisher choice</td>
-            <td>After purchasing user has access to every offer with tag included in <code>accessToTags</code> array parameter.<br/>Example: "Get unlimited access to all tutorials. Subscribe for only $49/month."
+            <td>week / month / 3months / 6months / year , it is a publisher choice</td>
+            <td>After purchasing user has access to every offer with tag included in <code>accessToTags</code> array parameter.<br/>Example: "Get unlimited access to all tutorials. Subscribe for only $49/month."<br/><a href="Tutorials/06_Tagging_offers">Learn more about Subscriptions</a>
+</td>
+        </tr>
+        <tr>
+            <td><a href="v3/Reference/Pass_Offer_API">Pass</td>
+            <td>1 time payment</td>
+            <td>Choose from day / week / 2weeks / month / 3months / 6months / year or set your own expire date</td>
+            <td>After purchasing user has access to every offer with tag included in <code>accessToTags</code> array parameter.<br/>Example: "Buy Pass for one month access to all tutorials."<br/><a href="Tutorials/06_Tagging_offers">Learn more about Passes</a>
 </td>
         </tr>
     </tbody>
@@ -86,7 +87,8 @@ Then, get a [publisher token](https://cleeng.com/dev/api-keys). Section 2.2.1 be
 
 In the first tutorial, we described how you can protect your content. As you probably remember, we've been working on default offer. Right now, we are going to create our own offer. 
 
-Please open `create_offer.php`. This file will use Cleeng API to create new rental offer, then it will print `offerId` on your screen. This `offerId` you can use later in `purchase.php` as we did with default offer id in [Tutorial 1](/Tutorials/01_Starting_with_Cleeng_PHP_SDK).
+Please open `create_offer.php`. This file will use Cleeng API to create new rental offer, then it will print `offerId` on your screen. This `offerId` you can use later in
+`purchase.php` as we did with default offer id in [Tutorial 1](Tutorials/01_Protect_your_content).
 
 <div class="accordion" id="accordion2">
     <div class="accordion-heading">
@@ -150,7 +152,7 @@ Please open `create_offer.php`. This file will use Cleeng API to create new rent
 
         function cleengPurchase() {
             CleengApi.purchase("&lt;?php echo $offerId ?&gt;", function(result) {
-                if (result.purchased) {
+                if (result.accessGranted) {
                     // improve the user experience - learn how to load with AJAX in tutorial 5
                     window.location.reload();
                 }
@@ -185,7 +187,7 @@ $offerSetup = array(
     'period' => '48',
     'price' => 0.49,
     'url' => 'http://your-site.com/view-offer-here',
-    'description' => 'See how Bip Bip and Coyotte are chasing each other for the 12th time. Watch it directly from your browser for a few pennies.'
+    'description' => 'See how Bip Bip and Coyotte are chasing each other for the 12th time.'
 );
 </code>
 </pre>
@@ -216,7 +218,7 @@ At this time in `purchase.php` you have to set offer ID, which you get from poin
 
 e.g. `$offerId = 'R435427708_US';`
 
-<!--Click to see a working demo: [Example 2 - Creating Offers](/example/02/purchase.php).-->
+<!--Click to see a working demo: [Example 2 - Creating Offers](example/02/purchase.php).-->
 
 You are now ready to protect and sell digital content from your own website!
 

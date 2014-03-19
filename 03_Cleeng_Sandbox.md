@@ -33,6 +33,8 @@ To create offers on Sandbox, you have to:
 
     `$publisherToken = 'YOUR_SANDBOX_PUBLISHER_TOKEN';`
 
+    which you can find in [sandbox api-keys](http://sandbox.cleeng.com/dev/api-keys).
+
     &nbsp;
 
 2. Set endpoint to sandbox. 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Cleeng API Example 2 - Creating offer
- * you can find tutorial 2 here: http://open.cleeng.com/Tutorials/02_Creating_Offers
+ * you can find tutorial 2 here: http://cleeng.com/open/Tutorials/02_Creating_Offers
  * =====================================================================
  * This file should be opened in browser, probably:
  * your-site.com/02_Creating_Offers/purchase.php
@@ -24,7 +24,7 @@ $cleengApi = new Cleeng_Api();
 ?>
 <html>
 <head>
-    <script type="text/javascript" src="<?php echo $cleengApi->getJsApiUrl() ?>"></script>
+    <script type="text/javascript" src="http://cleeng.com/js-api/3.0/api.js"></script>
     <script type="text/javascript">
         CleengApi.trackOfferImpression("<?php echo $offerId ?>");
         function cleengPurchase() {
@@ -35,7 +35,7 @@ $cleengApi = new Cleeng_Api();
     </script>
 </head>
 <body>
-<h1>Example 2: Creating offers</h1>
+<h1>Example 1: Getting started with Cleeng</h1>
 <p>In case of any problems, please go back to <a href="http://cleeng.com/open/Tutorials/01_Protect_your_content">tutorial</a> on Cleeng Open.</p>
 
 <hr />

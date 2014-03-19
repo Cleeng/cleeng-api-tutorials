@@ -4,10 +4,10 @@ Tutorial 4 - Manage your offers
 
 Welcome to the 4th tutorial our dear Developer. What you should know already:
 
-* [What is Cleeng and how it works](/Tutorials/Introduction)
-* [How to implement PHP SDK and protect you content](/Tutorials/01_Protect_your_content)
-* [How to get publisher token and how easy is to create new offers](/Tutorials/01_Creating_Offers)
-* [How to set Cleeng Sandbox](/Tutorials/03_Cleeng_Sandbox), our cozy environment for testing Cleeng.
+* [What is Cleeng and how it works](Tutorials/Introduction)
+* [How to implement PHP SDK and protect you content](Tutorials/01_Protect_your_content)
+* [How to get publisher token and how easy is to create new offers](Tutorials/02_Creating_Offers)
+* [How to set Cleeng Sandbox](Tutorials/03_Cleeng_Sandbox), our cozy environment for testing Cleeng.
 
 <table><tr>
     <td style="padding:20px 10px 27px 25px">From now on, the main assumption is:</td>
@@ -16,14 +16,14 @@ Welcome to the 4th tutorial our dear Developer. What you should know already:
 
 ##1. Introduction
 
-Again we stay close to offers, but this time you can learn how to update and deactivate existing offers.
+Again, we stay close to offers but this time you can learn how to update and deactivate existing offers.
 
-Also in this tutorial we will work with Cleeng Sandbox [?](Tutorials/03_Cleeng_Sandbox).
+Also, in this tutorial, we will work with Cleeng Sandbox [?](Tutorials/03_Cleeng_Sandbox).
 
 What can be useful:
 
-* [API Reference](/Reference) - place, where you can read about every method we are using
-* [Example files<i class="icon-download"></i>](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) - package of examples, you should have it already, from previous tutorials.
+* [API Reference](v3/Reference) - place where you can read about every method we use
+* [Example files<i class="icon-download"></i>](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) - package of examples, you should have it already from previous tutorials.
 
 ---
 
@@ -50,15 +50,21 @@ The same as in previous tutorial: [Cleeng Sandbox](Tutorials/03_Cleeng_Sandbox)
 
     $offer = $cleengApi->createRentalOffer($offerSetup);
 
-That's it!
+That's it! You can also check how to create other offers:
+
+- [createSingleOffer](v3/Reference/Single_Offer_API/Functions/createSingleOffer)
+
+- [createEventOffer](v3/Reference/Live_Event_API/Functions/createEventOffer)
+
+- [createSubscriptionOffer](v3/Reference/Subscription_Offer_API/Functions/createSubscriptionOffer)
 
 ##3. Update your offer
 
 At first check [update_offer.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/04_Manage_your_offer/update_offer.php), as you can see we repeat steps from 2.2 - 2.3 to switch to Sandbox environment.
 
-Because in this Tutorial we are working with Rental offers, read about how to [updateRentalOffer](/v3/Reference/Rental_Offer_API/Functions/updateRentalOffer) in API Reference. Main assumptions connected with changing existing offers are:
+Because in this Tutorial we are working with Rental offers, read about how to [updateRentalOffer](v3/Reference/Rental_Offer_API/Functions/updateRentalOffer) in API Reference. Main assumptions connected with changing existing offers are:
 
-* you have to be the offer owner
+* you have to be the owner of the offer
 * you have to know the id of the offer you want to change
 
 3.1 Set offer ID
@@ -79,12 +85,18 @@ E.g. if I want to change only title and period:
     $offer = $cleengApi->updateRentalOffer($offerId, $offerSetup);
 
 
-And it's done!
+And it's done! Check how to update different types of offer:
+
+- [updateSingleOffer](v3/Reference/Single_Offer_API/Functions/updateSingleOffer)
+
+- [updateEventOffer](v3/Reference/Live_Event_API/Functions/updateEventOffer)
+
+- [updateSubscriptionOffer](v3/Reference/Subscription_Offer_API/Functions/updateSubscriptionOffer)
 
 ##4. Deactivate the offer
 
-About `active` property you can read in [Rental Offer Overview](/v3/Reference/Rental_Offer_API). One and only option to change it is [deactivateRentalOffer](/v3/Reference/Rental_Offer_API/Functions/deactivateRentalOffer) method.
-After calling this method, you still will be able to find the offer using e.g. [getRentalOffer](/v3/Reference/Rental_Offer_API/Functions/getRentalOffer), **but** there is no option to make the offer active again!
+About `active` property you can read in [Rental Offer Overview](v3/Reference/Rental_Offer_API). One and only option to change it is [deactivateRentalOffer](v3/Reference/Rental_Offer_API/Functions/deactivateRentalOffer) method.
+After calling this method, you still will be able to find the offer using e.g. [getRentalOffer](v3/Reference/Rental_Offer_API/Functions/getRentalOffer), **but** there is no option to make the offer active again!
 
 So, to make the offer disable to purchase you just have to:
 
@@ -99,9 +111,13 @@ So, to make the offer disable to purchase you just have to:
 
     $offer = $cleengApi->deactivateRentalOffer($offerId);
 
-And it's gone.
+And it's gone. If you want to disable different kind of offer:
 
+- [deactivateSingleOffer](v3/Reference/Single_Offer_API/Functions/deactivateSingleOffer)
 
+- [deactivateEventOffer](v3/Reference/Live_Event_API/Functions/deactivateEventOffer)
+
+- [deactivateSubscriptionOffer](v3/Reference/Subscription_Offer_API/Functions/deactivateSubscriptionOffer)
 
 
 ---

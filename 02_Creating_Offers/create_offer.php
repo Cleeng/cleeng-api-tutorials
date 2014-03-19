@@ -19,8 +19,7 @@ $offerSetup = array(
     'period' => '48',
     'price' => 0.49,
     'url' => 'http://your-site.com/view-offer-here',
-    'description' => 'This is my first Rental Offer, after buying this, you will get 48 hours of accesss to my Super Cool article.',
-    'tags' => array('sport', 'hockey')
+    'description' => 'This is my first Rental Offer, after buying this, you will get 48 hours of accesss to my Super Cool article.'
 );
 
 /* --------------------------------------------------------------------
@@ -33,11 +32,14 @@ $offerSetup = array(
 include_once('../cleeng-php-sdk/cleeng_api.php');
 
 // create Cleeng API object
-$cleengApi = new Cleeng_Api();
-$cleengApi->setPublisherToken($publisherToken);
+$cleengApi = new Cleeng_Api(array(
+    'endpoint' => 'https://cleeng.com/api/3.0/json-rpc',//to delete
+    'publisherToken' => $publisherToken
+));
 // createRentalOffer Reference you can easily find here
 // http://cleeng.com/open/Reference/Rental_Offer_API/Functions/createRentalOffer
 $offer = $cleengApi->createRentalOffer($offerSetup);
+
 // print ID of new offer
 echo 'Created rental offer with id = ' . $offer->id . "\n";
 

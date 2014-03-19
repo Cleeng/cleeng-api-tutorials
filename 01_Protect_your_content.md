@@ -25,18 +25,18 @@ Tutorial 1 - Protect your content with PHP SDK
 
 This basic tutorial shows you how to protect an offer on your website. You will learn the basics of the Cleeng API. All in just 5 minutes. This tutorial is for websites that can execute [PHP](http://php.net).
 
-<br>
+
 
 On the right, you can see little example, how content protection works. What is great about our solution, is that you can hide only a part of your content. E.g. Your article is
 about
  creating robots, your are describing how they work, what are the parameters, but only thing you are hiding is tutorial how to make one on your own.
 
-<br>
+
 
 After this tutorial you can sell anything digital: a few lines of code, a video embed (with domain restrictions), access to a form,
 how to build robots tutorial or ... be creative!
 
-<br>
+
 
 1. What is Cleeng PHP SDK for ?
 
@@ -44,12 +44,13 @@ how to build robots tutorial or ... be creative!
 
 3. Testing payment
 
+<br style="clear: right">
 
 ---
 
 ##1. What is Cleeng PHP SDK ?
 
-Cleeng SDK for PHP developers provides a rich set of server-side functionality for accessing Cleeng server-side API calls. Using it you can easily integrate your website with out platform. For more information go to [PHP SDK](/PHP_SDK) section.
+Cleeng SDK for PHP developers provides a rich set of server-side functionality for accessing Cleeng server-side API calls. Using it you can easily integrate your website with out platform. For more information go to [PHP SDK](PHP_SDK) section.
 
 
 ##2. Protect your content.
@@ -95,7 +96,7 @@ Open file purchase.php from [github](https://github.com/Cleeng/cleeng-api-tutori
 
     function cleengPurchase() {
         CleengApi.purchase("<?php echo $offerId ?>", function(result) {
-            if (result.purchased) {
+            if (result.accessGranted) {
                 window.location.reload();
             }
         });
@@ -184,7 +185,7 @@ During testing, as you probably can see, you can't complete you purchase unless 
 <!--
 ##6. Summary
 
-This tutorial explains in detail the [Protect your content example](/example/01/purchase.php). Grab the [examples files, including the PHP SDK](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
+This tutorial explains in detail the [Protect your content example](example/01/purchase.php). Grab the [examples files, including the PHP SDK](https://github.com/Cleeng/cleeng-api-tutorials/zipball/master) from Github and do the following:
 
 * Register as a publisher on [Cleeng](http://cleeng.com/publisher-registration)
 * Grab your [API token](http://cleeng.com/dev/api-keys).

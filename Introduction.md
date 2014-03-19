@@ -1,7 +1,7 @@
 Cleeng Introduction
 ===================
 
-Read about Cleeng, check how easy it is to integrate this powerfull ecommerce framework for digital content within your website or application. Learn the process from opening the publisher account to earning money.
+Read about Cleeng, check how easy it is to integrate this powerful ecommerce framework for digital content within your website or application. Learn the process from opening the publisher account to earning money.
 
 ---
 

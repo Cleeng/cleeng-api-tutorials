@@ -57,7 +57,8 @@ load some content from database and return it.
 
 ##4. Purchase page
 
-This example is based on jQuery library, which can be loaded from the Google servers. Next to that we load the Cleeng Javascript SDK. In tutorial 1, after the purchase the full page was reloaded with document.reload(). This part is now replaced with the async call to [ajax.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/02_Loading_content_async/ajax.php).
+This example is based on jQuery library, which can be loaded from the Google servers. Next to that we load the Cleeng Javascript SDK. In tutorial 1,
+after the purchase the full page was reloaded with document.reload(). This part is now replaced with the async call to [ajax.php](https://github.com/Cleeng/cleeng-api-tutorials/blob/master/05_Loading_content_async/ajax.php).
 
 This example follows jQuery conventions. It uses jQuery's `click()` to trigger the purchase function similar to example 1. The whole JavaScript block is surrounded by `$('document').ready()` to ensure it executes only after DOM tree is loaded.
 
